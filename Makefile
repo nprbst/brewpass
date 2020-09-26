@@ -24,26 +24,25 @@ graphql-gen:
 
 
 # Build the necessary images for Docker Compose
-docker-build:
+backend-build:
 	@docker-compose build
 	# TODO: Could add gcloud setup here...
-.PHONY: docker-build
-
-# Tail running docker-compose containers
-docker-tail: name=
-docker-tail: 
-	@docker-compose logs -f --tail=50 $(name)
-.PHONY: docker-ps
-
-# Show the running docker-compose containers
-docker-ps:
-	@docker-compose ps
-.PHONY: docker-ps
+.PHONY: backend-build
 
 # Start the backend services
 backend-start:
 	@docker-compose up --detach
 .PHONY: backend-start
+
+# Tail running docker-compose containers
+backend-tail: 
+	@docker-compose logs -f --tail=50 $(name)
+.PHONY: backend-tail
+
+# Show the running docker-compose containers
+backend-ps:
+	@docker-compose ps
+.PHONY: backend-ps
 
 # Stop the backend services
 backend-stop:
@@ -54,6 +53,7 @@ backend-stop:
 backend-restart:
 	@docker-compose restart
 .PHONY: backend-restart
+
 
 # Install dependencies for the frontend
 web-install:

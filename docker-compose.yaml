@@ -26,15 +26,33 @@ services:
     command: make dev
     environment:
       GOCACHE: /go/pkg/go-cache
-      PG_URL: "postgres://chassis-dev:chassis-dev@postgres:5432/chassis-dev?sslmode=disable"
+      PG_URL: postgres://chassis-dev:chassis-dev@postgres:5432/chassis-dev?sslmode=disable
     volumes:
       - .:/app
       - go_pkg:/go/pkg
+
+  hasura:
+    image: hasura/graphql-engine:v1.3.2
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "postgres"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://chassis-dev:chassis-dev@postgres:5432/chassis-dev?sslmode=disable
+      ## enable the console served by server
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      ## enable debugging mode. It is recommended to disable this in production
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      ## uncomment next line to set an admin secret
+      # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
 
   nginx:
     image: nginx:latest
     depends_on:
       - api-server
+      - hasura
     ports:
       - "3000:3000"
     volumes:

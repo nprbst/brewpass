@@ -21,9 +21,9 @@ services:
     depends_on:
       - postgres
     expose:
-      - "8080"
+      - "9000"
     working_dir: /app/go
-    command: make start
+    command: make dev
     environment:
       GOCACHE: /go/pkg/go-cache
       PG_URL: "postgres://chassis-dev:chassis-dev@postgres:5432/chassis-dev?sslmode=disable"

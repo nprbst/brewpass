@@ -18,9 +18,10 @@ help:
 
 # Generate sources from 
 graphql-gen:
-	@cd go && go generate gql/resolver.go
-	# TODO: Add generation for web here...
+	@cd go;  make graphql-gen
+	@cd web; yarn codegen
 .PHONY: graphql-gen
+
 
 # Build the necessary images for Docker Compose
 docker-build:
@@ -28,16 +29,31 @@ docker-build:
 	# TODO: Could add gcloud setup here...
 .PHONY: docker-build
 
-# Start the backend services: nginx, api-server, hasura, postgres, db-migrations
+# Tail running docker-compose containers
+docker-tail: name=
+docker-tail: 
+	@docker-compose logs -f --tail=50 $(name)
+.PHONY: docker-ps
+
+# Show the running docker-compose containers
+docker-ps:
+	@docker-compose ps
+.PHONY: docker-ps
+
+# Start the backend services
 backend-start:
 	@docker-compose up --detach
 .PHONY: backend-start
 
-# Stop the backend services: nginx, api, hasura, postgres, db-migrations
+# Stop the backend services
 backend-stop:
 	@docker-compose down
 .PHONY: backend-stop
 
+# Restart the backend services
+backend-restart:
+	@docker-compose restart
+.PHONY: backend-restart
 
 # Install dependencies for the frontend
 web-install:

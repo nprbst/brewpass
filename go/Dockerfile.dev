@@ -1,3 +1,5 @@
 FROM golang:1.14.4-alpine
 
+RUN apk add bash git make
+
 RUN go get -u github.com/cosmtrek/air

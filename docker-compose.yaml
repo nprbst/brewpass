@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: chassis-dev
+      POSTGRES_DB: chassis-dev
+      POSTGRES_PASSWORD: chassis-dev
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  api-server:
+    build:
+      context: ./go
+      dockerfile: Dockerfile.dev
+    image: chassis-go-dev:latest
+    depends_on:
+      - postgres
+    expose:
+      - "8080"
+    working_dir: /app/go
+    command: make start
+    environment:
+      GOCACHE: /go/pkg/go-cache
+      PG_URL: "postgres://chassis-dev:chassis-dev@postgres:5432/chassis-dev?sslmode=disable"
+    volumes:
+      - .:/app
+      - go_pkg:/go/pkg
+
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - api-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf
+
+volumes:
+  db_data:
+  go_pkg:

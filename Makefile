@@ -16,6 +16,20 @@ help:
 .PHONY: help
 # CREDIT: https://github.com/ianstormtaylor/makefile-help
 
+# Name of target
+NAME ?= 
+
+# Install the hygen tool
+hygen-install:
+	@npm install -g hygen
+	@hygen init self
+.PHONY: hygen-install
+
+# Create a new hygen generator
+hygen-new:
+	@hygen generator new $(NAME)
+.PHONY: hygen-new
+
 # Generate sources from 
 graphql-gen:
 	@cd go;  make graphql-gen
@@ -33,9 +47,6 @@ backend-build:
 backend-up:
 	@docker-compose up --detach postgres hasura api-server nginx
 .PHONY: backend-up
-
-# Name of target service(s)
-NAME ?= 
 
 # Tail running docker-compose containers
 backend-tail: 

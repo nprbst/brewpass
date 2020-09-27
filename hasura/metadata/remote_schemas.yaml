@@ -1,0 +1,5 @@
+- name: api-server
+  definition:
+    url: http://api-server:9000/graphql
+    timeout_seconds: 60
+    forward_client_headers: true

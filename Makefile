@@ -30,9 +30,9 @@ backend-build:
 .PHONY: backend-build
 
 # Start the backend services
-backend-start:
-	@docker-compose up --detach
-.PHONY: backend-start
+backend-up:
+	@docker-compose up --detach postgres hasura api-server nginx
+.PHONY: backend-up
 
 # Tail running docker-compose containers
 backend-tail: 
@@ -45,9 +45,9 @@ backend-ps:
 .PHONY: backend-ps
 
 # Stop the backend services
-backend-stop:
+backend-down:
 	@docker-compose down
-.PHONY: backend-stop
+.PHONY: backend-down
 
 # Restart the backend services
 backend-restart:

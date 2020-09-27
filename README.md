@@ -19,3 +19,4 @@ make web-dev
 - Next.js
 - Go
 - Postgres
+- Hasura

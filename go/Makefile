@@ -1,16 +1,12 @@
 # Show this help prompt.
 help:
-	@ echo
 	@ echo '  Usage:'
-	@ echo ''
 	@ echo '    make <target> [flags...]'
 	@ echo ''
 	@ echo '  Targets:'
-	@ echo ''
 	@ awk '/^#/{ comment = substr($$0,3) } comment && /^[a-zA-Z][a-zA-Z0-9_-]+ ?:/{ print "   ", $$1, comment }' $(MAKEFILE_LIST) | column -t -s ':' | sort
 	@ echo ''
 	@ echo '  Flags:'
-	@ echo ''
 	@ awk '/^#/{ comment = substr($$0,3) } comment && /^[a-zA-Z][a-zA-Z0-9_-]+ ?\?=/{ print "   ", $$1, $$2, comment }' $(MAKEFILE_LIST) | column -t -s '?=' | sort
 	@ echo ''
 .PHONY: help
@@ -22,8 +18,8 @@ graphql-gen:
 .PHONY: graphql-gen
 
 # Build api-server binary
-api-server: bin/api-server
-.PHONY: api-server
+build: bin/api-server
+.PHONY: build
 
 SOURCES = $(wildcard **/*.go)
 bin/api-server: ${SOURCES}
@@ -35,12 +31,17 @@ clean:
 	@rm bin/api-server
 .PHONY: clean
 
-# Run air to hot-rebuild this project
+# Run air to hot-rebuild the api-server project
 dev: clean
 	@mkdir -p tmp/
 	@echo -n "${PG_URL}" > tmp/postgres-url
-	@air
+	@air -c .air.conf
 .PHONY: dev
+
+# Run air to hot-rebuild the scratch project
+scratch:
+	@cd scratch; air -c ./.air.conf
+.PHONY: scratch
 
 
 # Build the Docker image

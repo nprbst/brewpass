@@ -34,9 +34,12 @@ backend-up:
 	@docker-compose up --detach postgres hasura api-server nginx
 .PHONY: backend-up
 
+# Name of target service(s)
+NAME ?= 
+
 # Tail running docker-compose containers
 backend-tail: 
-	@docker-compose logs -f --tail=50 $(name)
+	@docker-compose logs -f --tail=50 $(NAME)
 .PHONY: backend-tail
 
 # Show the running docker-compose containers

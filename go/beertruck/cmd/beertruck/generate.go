@@ -1,152 +1,56 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"math/rand"
-	"os"
 	"strings"
 	"time"
 
 	"github.com/benbjohnson/clock"
 	"github.com/brianvoe/gofakeit/v5"
+	"github.com/nprbst/brewpass/beertruck/db"
+	"github.com/nprbst/brewpass/beertruck/osm"
 	"github.com/urfave/cli"
 )
 
 var (
-	debug bool
-
-	flagConfig = cli.StringFlag{
-		Name:  "config",
-		Usage: "load config file",
-	}
-	flagDebug = cli.BoolFlag{
-		Name:        "debug",
-		Usage:       "run in debug mode",
-		Destination: &debug,
-	}
-	flagFile = cli.StringFlag{
-		Name:  "file",
-		Usage: "input file",
-	}
-	flagItems = cli.IntFlag{
-		Name:  "items",
-		Usage: "limit items",
-		Value: 20,
-	}
-	flagLimit = cli.IntFlag{
-		Name:  "limit",
-		Usage: "limit inputs",
-		Value: 50,
-	}
-	flagRate = cli.IntFlag{
-		Name:  "rate",
-		Usage: "seconds between purchases",
-		Value: 15,
-	}
-	flagStart = cli.DurationFlag{
-		Name:  "start",
-		Usage: "start at time offset",
-	}
-	flagWarp = cli.Int64Flag{
-		Name:  "warp",
-		Usage: "factor by which to warp time",
-		Value: 10,
-	}
-
-	appFlags = []cli.Flag{flagConfig}
-
-	appCommands = []cli.Command{
-		restaurantsCommand,
-		menusCommand,
-		generateCommand,
-	}
-)
-
-func main() {
-	app := cli.NewApp()
-	app.Name = "foodtruck"
-	app.Usage = "Deliver the goods!"
-	app.Flags = appFlags
-	app.Commands = appCommands
-
-	err := app.Run(os.Args)
-	if err != nil {
-		log.Fatalf("ERROR: %s\n", err.Error())
-	}
-}
-
-var (
-	restaurantsCommand = cli.Command{
-		Name:    "restaurants",
-		Usage:   "Operate on restaurants",
-		Aliases: []string{"r"},
-		Subcommands: []cli.Command{
-			{
-				Name:   "import",
-				Usage:  "load restaurants into database",
-				Flags:  []cli.Flag{flagFile, flagLimit},
-				Action: loadRestaurants,
-			},
-		},
-	}
-
-	menusCommand = cli.Command{
-		Name:    "menus",
-		Usage:   "Operate on menus",
-		Aliases: []string{"m"},
-		Subcommands: []cli.Command{
-			{
-				Name:   "fake",
-				Usage:  "insert fake menus into database",
-				Flags:  []cli.Flag{flagItems},
-				Action: fakeMenus,
-			},
-		},
-	}
-
 	generateCommand = cli.Command{
 		Name:    "generate",
 		Aliases: []string{"gen"},
 		Subcommands: []cli.Command{
-			{
-				Name:    "activity",
-				Aliases: []string{"act"},
-				Usage:   "simulate purchase activity",
-				Flags:   []cli.Flag{flagLimit, flagRate, flagStart, flagWarp},
-				Action:  generateActivity,
-			},
+			venuesCommand,
+			menusCommand,
+			activityCommand,
 		},
+	}
+
+	venuesCommand = cli.Command{
+		Name:   "venues",
+		Usage:  "Add venues to database",
+		Flags:  []cli.Flag{flagFile, flagLimit, flagPosgtresURI},
+		Action: loadvenues,
+	}
+
+	menusCommand = cli.Command{
+		Name:   "menus",
+		Usage:  "Add menu items to database",
+		Flags:  []cli.Flag{flagItems},
+		Action: fakeMenus,
+	}
+
+	activityCommand = cli.Command{
+		Name:    "activity",
+		Aliases: []string{"act"},
+		Usage:   "simulate purchase activity",
+		Flags:   []cli.Flag{flagLimit, flagRate, flagStart, flagWarp},
+		Action:  generateActivity,
 	}
 )
 
-// Generated at https://mholt.github.io/json-to-go/
-type OSM struct {
-	Type     string `json:"type"`
-	Features []struct {
-		Type       string `json:"type"`
-		ID         string `json:"id"`
-		Properties struct {
-			Type string `json:"type"`
-			ID   string `json:"id"`
-			Tags struct {
-				Amenity string `json:"amenity"`
-				Name    string `json:"name"`
-			} `json:"tags"`
-			Relations []interface{} `json:"relations"`
-			Meta      struct {
-			} `json:"meta"`
-		} `json:"properties"`
-		Geometry struct {
-			Type        string    `json:"type"`
-			Coordinates []float64 `json:"coordinates"`
-		} `json:"geometry"`
-	} `json:"features"`
-}
-
-func loadRestaurants(c *cli.Context) error {
+func loadvenues(c *cli.Context) error {
 	f := c.String(flagFile.Name)
 	fmt.Printf("Importing from: %s\n", f)
 
@@ -155,25 +59,54 @@ func loadRestaurants(c *cli.Context) error {
 		return err
 	}
 
-	osm := &OSM{}
-	if err := json.Unmarshal(data, osm); err != nil {
+	results := &osm.QueryResults{}
+	if err := json.Unmarshal(data, results); err != nil {
 		return err
 	}
 
 	limit := c.Int(flagLimit.Name)
 	if limit > 0 {
-		osm.Features = osm.Features[:limit]
+		results.Features = results.Features[:limit]
 	}
 
 	// insert into DB
-	fmt.Printf("n%+v\n\nOSM Features: %d\n", osm.Features, len(osm.Features))
+	fmt.Printf("OSM Features: %d\n", len(results.Features))
+
+	pgURI := c.String(flagPosgtresURI.Name)
+	store, err := db.New(pgURI)
+	if err != nil {
+		return err
+	}
+
+	ctx := context.Background()
+	count := 0
+	for _, f := range results.Features {
+		name := f.Properties.Tags["name"]
+		if name == "" {
+			continue
+		}
+		venue := db.Venue{
+			OsmID: f.ID,
+			Name:  name,
+			Tags:  f.Properties.Tags,
+			Long:  f.Geometry.Coordinates.Long(),
+			Lat:   f.Geometry.Coordinates.Lat(),
+		}
+		_, err := store.CreateVenue(ctx, venue)
+		if err != nil && err != db.ErrNoRowsCreated {
+			fmt.Printf("\nErrorred inserting Venue: %#v\n", venue)
+			return err
+		}
+		count++
+	}
+	fmt.Printf("Venues Created: %d\n", count)
 
 	return nil
 }
 
 func fakeMenus(c *cli.Context) error {
 	items := c.Int(flagItems.Name)
-	fmt.Printf("Faking %d menu items...\n", items)
+	fmt.Printf("Faking up to %d menu items...\n", items)
 
 	gofakeit.Seed(rand.Int63())
 

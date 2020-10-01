@@ -7,8 +7,8 @@ import (
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
-	"github.com/nprbst/sp-takehome-challenge/graph"
-	"github.com/nprbst/sp-takehome-challenge/graph/server"
+	"github.com/nprbst/brewpass/graph"
+	"github.com/nprbst/brewpass/graph/server"
 	cors "github.com/rs/cors/wrapper/gin"
 	"github.com/urfave/cli"
 )

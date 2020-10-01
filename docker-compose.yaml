@@ -2,22 +2,23 @@ version: "3.8"
 
 services:
   postgres:
-    image: postgres:12
+    # image: postgres:12
+    image: timescale/timescaledb-postgis:latest-pg12
     restart: always
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: chassis-dev
-      POSTGRES_DB: chassis-dev
-      POSTGRES_PASSWORD: chassis-dev
+      POSTGRES_USER: brewpass-dev
+      POSTGRES_DB: brewpass-dev
+      POSTGRES_PASSWORD: brewpass-dev
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
 
   api-server:
     build:
       context: ./go
       dockerfile: Dockerfile.dev
-    image: chassis-go-dev:latest
+    image: brewpass-go-dev:latest
     depends_on:
       - postgres
     expose:
@@ -26,7 +27,7 @@ services:
     command: make dev
     environment:
       GOCACHE: /go/pkg/go-cache
-      PG_URL: postgres://chassis-dev:chassis-dev@postgres:5432/chassis-dev?sslmode=disable
+      PG_URL: postgres://brewpass-dev:brewpass-dev@postgres:5432/brewpass-dev?sslmode=disable
     volumes:
       - .:/app
       - go_pkg:/go/pkg
@@ -40,7 +41,7 @@ services:
     restart: always
     working_dir: /var/hasura
     environment:
-      HASURA_GRAPHQL_DATABASE_URL: postgres://chassis-dev:chassis-dev@postgres:5432/chassis-dev?sslmode=disable
+      HASURA_GRAPHQL_DATABASE_URL: postgres://brewpass-dev:brewpass-dev@postgres:5432/brewpass-dev?sslmode=disable
       ## enable the console served by server
       HASURA_GRAPHQL_ENABLE_CONSOLE: "false" # access console using `hasura console` so that migrations are recorded
       ## enable debugging mode. It is recommended to disable this in production
@@ -64,5 +65,5 @@ services:
       - ./nginx.dev.conf:/etc/nginx/nginx.conf
 
 volumes:
-  db_data:
+  postgres_data:
   go_pkg:

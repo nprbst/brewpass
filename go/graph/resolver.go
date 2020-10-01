@@ -1,6 +1,6 @@
 package graph
 
-import "github.com/nprbst/sp-takehome-challenge/graph/resolvers"
+import "github.com/nprbst/brewpass/graph/resolvers"
 
 //go:generate go run github.com/99designs/gqlgen
 

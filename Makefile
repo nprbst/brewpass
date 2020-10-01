@@ -49,9 +49,9 @@ backend-up:
 .PHONY: backend-up
 
 # Tail running docker-compose containers
-backend-tail: 
+backend-logs: 
 	@docker-compose logs -f --tail=50 $(NAME)
-.PHONY: backend-tail
+.PHONY: backend-logs
 
 # Show the running docker-compose containers
 backend-ps:

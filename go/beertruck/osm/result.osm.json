@@ -635,18 +635,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/6938233190",
-      "properties": {
-        "type": "node",
-        "id": "6938233190",
-        "tags": { "amenity": "pub" },
-        "relations": [],
-        "meta": {}
-      },
-      "geometry": { "type": "Point", "coordinates": [-105.068551, 40.5928714] }
-    },
-    {
-      "type": "Feature",
       "id": "node/7360232812",
       "properties": {
         "type": "node",
@@ -791,18 +779,6 @@
         "meta": {}
       },
       "geometry": { "type": "Point", "coordinates": [-105.0370143, 40.5517165] }
-    },
-    {
-      "type": "Feature",
-      "id": "node/1705273488",
-      "properties": {
-        "type": "node",
-        "id": "1705273488",
-        "tags": { "shop": "alcohol" },
-        "relations": [],
-        "meta": {}
-      },
-      "geometry": { "type": "Point", "coordinates": [-105.0943317, 40.5375013] }
     },
     {
       "type": "Feature",

@@ -1,6 +1,6 @@
 include ../../mk/Makefile.help
 
-NAME = foodtruck
+NAME = beertruck
 
 # Install query-overpass cli
 query-overpass-install:
@@ -31,11 +31,11 @@ ARGS?=""
 run: build
 	@../bin/${NAME} ${ARGS}
 
-import: build
-	@../bin/${NAME} restaurants import --file osm/result.osm.json
+venues: build
+	@../bin/${NAME} generate venues --file osm/result.osm.json
 
 menus: build
-	@../bin/${NAME} menus fake
+	@../bin/${NAME} generate menus
 
 activity: build
 	@../bin/${NAME} generate activity

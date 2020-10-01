@@ -11,6 +11,7 @@ import (
 
 	"github.com/benbjohnson/clock"
 	"github.com/brianvoe/gofakeit/v5"
+	fake "github.com/brianvoe/gofakeit/v5"
 	"github.com/nprbst/brewpass/beertruck/db"
 	"github.com/nprbst/brewpass/beertruck/osm"
 	"github.com/urfave/cli"
@@ -37,7 +38,7 @@ var (
 	menusCommand = cli.Command{
 		Name:   "menus",
 		Usage:  "Add menu items to database",
-		Flags:  []cli.Flag{flagItems},
+		Flags:  []cli.Flag{flagItems, flagPosgtresURI},
 		Action: fakeMenus,
 	}
 
@@ -104,47 +105,78 @@ func loadvenues(c *cli.Context) error {
 	return nil
 }
 
+func addMenuItem(ctx context.Context, store *db.DB, venueID uint64, itemType db.MenuItemType, itemName string) error {
+	_, err := store.CreateMenuItem(ctx, db.MenuItem{
+		VenueID:  venueID,
+		ItemType: itemType,
+		Name:     itemName,
+	})
+	return err
+}
+
 func fakeMenus(c *cli.Context) error {
 	items := c.Int(flagItems.Name)
 	fmt.Printf("Faking up to %d menu items...\n", items)
 
-	gofakeit.Seed(rand.Int63())
-
-	fmt.Println("\nBreakfast")
-	for i := 0; i < items; i++ {
-		food := gofakeit.Breakfast()
-		fmt.Println(food)
+	pgURI := c.String(flagPosgtresURI.Name)
+	store, err := db.New(pgURI)
+	if err != nil {
+		return err
 	}
 
-	fmt.Println("\nLunch")
-	for i := 0; i < items; i++ {
-		food := gofakeit.Lunch()
-		fmt.Println(food)
+	fake.Seed(rand.Int63())
+
+	ctx := context.Background()
+	venues, err := store.AllVenues(ctx)
+	for _, v := range venues {
+		fmt.Printf("%0.5d - %s\n", v.ID, v.Name)
+		for i := 0; i < items; i++ {
+			// There will be some ignore duplicate conflicts, so up-to items limit, but not always
+			addMenuItem(ctx, store, v.ID, db.MenuItemTypeBeer, fake.BeerName())
+			addMenuItem(ctx, store, v.ID, db.MenuItemTypeBreakfast, strings.Title(fake.Breakfast()))
+			addMenuItem(ctx, store, v.ID, db.MenuItemTypeSnack, strings.Title(fake.Snack()))
+			addMenuItem(ctx, store, v.ID, db.MenuItemTypeLunch, strings.Title(fake.Lunch()))
+			addMenuItem(ctx, store, v.ID, db.MenuItemTypeDinner, strings.Title(fake.Dinner()))
+			addMenuItem(ctx, store, v.ID, db.MenuItemTypeDessert, strings.Title(fake.Dessert()))
+		}
+
 	}
 
-	fmt.Println("\nSnacks")
-	for i := 0; i < items; i++ {
-		food := gofakeit.Snack()
-		fmt.Println(food)
-	}
+	// fmt.Println("\nBreakfast")
+	// for i := 0; i < items; i++ {
+	// 	food := gofakeit.Breakfast()
+	// 	fmt.Println(food)
+	// }
 
-	fmt.Println("\nDinner")
-	for i := 0; i < items; i++ {
-		food := gofakeit.Dinner()
-		fmt.Println(food)
-	}
+	// fmt.Println("\nLunch")
+	// for i := 0; i < items; i++ {
+	// 	food := gofakeit.Lunch()
+	// 	fmt.Println(food)
+	// }
 
-	fmt.Println("\nDesert")
-	for i := 0; i < items; i++ {
-		food := gofakeit.Dessert()
-		fmt.Println(food)
-	}
+	// fmt.Println("\nSnacks")
+	// for i := 0; i < items; i++ {
+	// 	food := gofakeit.Snack()
+	// 	fmt.Println(food)
+	// }
 
-	fmt.Println("\nBeverages")
-	for i := 0; i < items; i++ {
-		bev := gofakeit.BeerName()
-		fmt.Println(bev)
-	}
+	// fmt.Println("\nDinner")
+	// for i := 0; i < items; i++ {
+	// 	food := gofakeit.Dinner()
+	// 	fmt.Println(food)
+	// }
+
+	// fmt.Println("\nDesert")
+	// for i := 0; i < items; i++ {
+	// 	food := gofakeit.Dessert()
+	// 	fmt.Println(food)
+	// }
+
+	// fmt.Println("\nBeverages")
+	// for i := 0; i < items; i++ {
+	// 	bev := gofakeit.BeerName()
+	// 	fmt.Println(bev)
+	// }
 
 	return nil
 }

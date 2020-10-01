@@ -33,3 +33,13 @@ func (db *DB) CreateVenue(ctx context.Context, venue Venue) (*Venue, error) {
 
 	return &venue, nil
 }
+
+func (db *DB) AllVenues(ctx context.Context) ([]*Venue, error) {
+	var venues []*Venue
+	err := db.pg.Model(&venues).Select()
+	if err != nil {
+		return nil, err
+	}
+
+	return venues, nil
+}

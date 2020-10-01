@@ -7,8 +7,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/nprbst/chassis/graph/model"
-	"github.com/nprbst/chassis/graph/server"
+	"github.com/nprbst/sp-takehome-challenge/graph/model"
+	"github.com/nprbst/sp-takehome-challenge/graph/server"
 )
 
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {

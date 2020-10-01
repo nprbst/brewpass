@@ -1,0 +1,1173 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/535451087",
+      "properties": {
+        "type": "node",
+        "id": "535451087",
+        "tags": { "amenity": "bar", "name": "Avogadro's Number" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0791855, 40.579492] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/535451101",
+      "properties": {
+        "type": "node",
+        "id": "535451101",
+        "tags": { "amenity": "bar", "name": "The Pickle Barrel" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0783185, 40.5782377] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/535562133",
+      "properties": {
+        "type": "node",
+        "id": "535562133",
+        "tags": { "amenity": "bar", "name": "Ryan's Sports Bar & Grill" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0604509, 40.521846] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/932364013",
+      "properties": {
+        "type": "node",
+        "id": "932364013",
+        "tags": { "amenity": "bar", "name": "Elliot's Martini Bar" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0745592, 40.5884769] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2426759428",
+      "properties": {
+        "type": "node",
+        "id": "2426759428",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "232",
+          "addr:street": "Walnut Street",
+          "amenity": "bar",
+          "name": "The Forge Publick House"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0753925, 40.5888911] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3369496945",
+      "properties": {
+        "type": "node",
+        "id": "3369496945",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "220",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "Linden Street",
+          "amenity": "bar",
+          "name": "Pour Brothers Community Tavern"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0747446, 40.5883244] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4387405564",
+      "properties": {
+        "type": "node",
+        "id": "4387405564",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "239",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "South College Avenue",
+          "amenity": "bar",
+          "name": "Ace Gillett's Lounge",
+          "opening_hours": "Mo-Tu 16:00-22:00; We 16:00-23:00; Th 16:00-24:00; Fr-Sa 16:00-01:00, Su 16:00-23:00",
+          "phone": "+1-970-449-4797",
+          "smoking": "no",
+          "website": "https://acegilletts.com/"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0773383, 40.584581] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4775725180",
+      "properties": {
+        "type": "node",
+        "id": "4775725180",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "215",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "North College Avenue",
+          "amenity": "bar",
+          "contact:facebook": "https://www.facebook.com/ScrumpysHardCiderBar/",
+          "contact:phone": "+1-970-682-1944",
+          "contact:website": "http://scrumpys.net/",
+          "name": "Scrumpy's",
+          "opening_hours": "Tu-Th 11:00-22:00; Fr-Sa 11:00-23:59; Su 11:00-21:00"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0773236, 40.5894918] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6538395472",
+      "properties": {
+        "type": "node",
+        "id": "6538395472",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "225",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "Pine Street",
+          "amenity": "bar",
+          "name": "Crooked Stave (Brewery)",
+          "product": "beer"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0763942, 40.5894853] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6538476080",
+      "properties": {
+        "type": "node",
+        "id": "6538476080",
+        "tags": {
+          "amenity": "bar",
+          "distillery": "whisky;rum;vodka",
+          "name": "CopperMuse Distillery",
+          "opening_hours": "We-Th 16:00-21:00; Fr 14:00-22:00; Sa 11:00-22:00; Su 11:00-18:00",
+          "phone": "+1-970-999-6016",
+          "website": "http://coppermuse.com/"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0766074, 40.5899616] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6540368208",
+      "properties": {
+        "type": "node",
+        "id": "6540368208",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "214",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "South College Avenue",
+          "addr:unit": "2",
+          "amenity": "bar",
+          "name": "The Whisk(e)y"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.076646, 40.5848826] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6540368210",
+      "properties": {
+        "type": "node",
+        "id": "6540368210",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "224",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "South College Avenue",
+          "amenity": "bar",
+          "name": "Tony's"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0767707, 40.5848207] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7300708868",
+      "properties": {
+        "type": "node",
+        "id": "7300708868",
+        "tags": {
+          "amenity": "bar",
+          "name": "The Bar District",
+          "old_name": "Drunken Monkey"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0773387, 40.5859403] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7654115972",
+      "properties": {
+        "type": "node",
+        "id": "7654115972",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "23",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "Old Town Square",
+          "amenity": "bar",
+          "name": "The Yeti"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0761778, 40.5875983] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/108308758",
+      "properties": {
+        "type": "node",
+        "id": "108308758",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "124",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "North College Avenue",
+          "amenity": "pub",
+          "contact:phone": "+1-970-493-4404",
+          "name": "Town Pump"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0767369, 40.5876429] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/108310417",
+      "properties": {
+        "type": "node",
+        "id": "108310417",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "167",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "North College Avenue",
+          "amenity": "pub",
+          "amenity_1": "concert_hall",
+          "name": "Hodi's Half Note"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0773108, 40.5884129] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/293573418",
+      "properties": {
+        "type": "node",
+        "id": "293573418",
+        "tags": {
+          "addr:housenumber": "25",
+          "addr:postcode": "80524",
+          "addr:street": "Old Town Square",
+          "amenity": "pub",
+          "name": "Lucky Joe's Sidewalk Saloon",
+          "website": "http://www.luckyjoes.com"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0763019, 40.5874398] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/535451046",
+      "properties": {
+        "type": "node",
+        "id": "535451046",
+        "tags": {
+          "addr:housenumber": "5",
+          "addr:postcode": "80524",
+          "addr:street": "Old Town Square",
+          "amenity": "pub",
+          "name": "CooperSmith's Pub & Brewing",
+          "website": "http://www.coopersmithspub.com"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0755188, 40.5873784] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/535478587",
+      "properties": {
+        "type": "node",
+        "id": "535478587",
+        "tags": { "amenity": "pub", "name": "The Trailhead" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0783197, 40.5872599] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/535561831",
+      "properties": {
+        "type": "node",
+        "id": "535561831",
+        "tags": { "amenity": "pub", "name": "Road 34 Deli and Tavern" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0982357, 40.5743818] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1691447333",
+      "properties": {
+        "type": "node",
+        "id": "1691447333",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "133",
+          "addr:postcode": "80525",
+          "addr:state": "CO",
+          "addr:street": "Remington Street",
+          "amenity": "pub",
+          "name": "Equinox Brewing",
+          "website": "https://www.equinoxbrewing.com/"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0757134, 40.5863266] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1737959900",
+      "properties": {
+        "type": "node",
+        "id": "1737959900",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "307",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "South College Avenue",
+          "amenity": "pub",
+          "name": "Tap and Handle",
+          "phone": "+1-970-484-1116"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0774172, 40.5837315] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1828190510",
+      "properties": {
+        "type": "node",
+        "id": "1828190510",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "2608",
+          "addr:postcode": "80525-2803",
+          "addr:state": "CO",
+          "addr:street": "South Timberline Road",
+          "addr:suite": "108",
+          "amenity": "pub",
+          "contact:email": "whiskey@williamolivers.com",
+          "contact:phone": "+1-970-680-3726",
+          "contact:website": "http://www.williamolivers.com/",
+          "name": "William Oliver's Publick House",
+          "opening_hours": "Mo-Su 11:00-02:00"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0371961, 40.551715] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2047071074",
+      "properties": {
+        "type": "node",
+        "id": "2047071074",
+        "tags": {
+          "addr:housenumber": "1900",
+          "addr:postcode": "80524",
+          "addr:street": "East Lincoln Avenue",
+          "amenity": "pub",
+          "name": "Funkwerks",
+          "opening_hours": "Mo-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00",
+          "website": "https://funkwerks.com/"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0422279, 40.5833653] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2047096083",
+      "properties": {
+        "type": "node",
+        "id": "2047096083",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "1611",
+          "addr:postcode": "80525-1006",
+          "addr:state": "CO",
+          "addr:street": "South College Avenue",
+          "addr:suite": "1609",
+          "amenity": "pub",
+          "contact:phone": "+1-970-493-2337",
+          "name": "Black Bottle Brewery",
+          "opening_hours": "Mo-Su 11:00-24:00",
+          "website": "https://blackbottlebrewery.com/"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0785852, 40.566354] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2047262255",
+      "properties": {
+        "type": "node",
+        "id": "2047262255",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "134",
+          "addr:postcode": "80524",
+          "addr:street": "South College Avenue",
+          "amenity": "pub",
+          "name": "The Crown Pub",
+          "website": "http://www.crownpub.net"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0767636, 40.5861855] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2047268204",
+      "properties": {
+        "type": "node",
+        "id": "2047268204",
+        "tags": {
+          "addr:housenumber": "104",
+          "addr:postcode": "80524",
+          "addr:street": "West Olive Street",
+          "amenity": "pub",
+          "internet_access": "wlan",
+          "name": "Choice City Butcher and Deli",
+          "website": "http://www.choicecitybutcher.com"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0773951, 40.5843979] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2376298514",
+      "properties": {
+        "type": "node",
+        "id": "2376298514",
+        "tags": { "amenity": "pub", "name": "Steakout Saloon" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0784093, 40.587256] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2684479447",
+      "properties": {
+        "type": "node",
+        "id": "2684479447",
+        "tags": {
+          "addr:housenumber": "214",
+          "addr:postcode": "80524",
+          "addr:street": "Linden Street",
+          "amenity": "pub",
+          "name": "Blind Pig Pub",
+          "website": "blindpigfortcollins.com"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0748713, 40.5882124] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3843990703",
+      "properties": {
+        "type": "node",
+        "id": "3843990703",
+        "tags": { "amenity": "pub", "name": "Ramskeller" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0849933, 40.5746421] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4226239445",
+      "properties": {
+        "type": "node",
+        "id": "4226239445",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "321",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "Old Firehouse Alley",
+          "amenity": "pub",
+          "contact:phone": "+1 970 484 2421",
+          "contact:website": "https://prostbrewing.com/",
+          "internet_access": "wlan",
+          "internet_access:fee": "no",
+          "name": "Prost Brewing",
+          "opening_hours": "Mo-We 12:00-22:00; Th,Fr 12:00-24:00; Sa 11:00-24:00; Su 11:00-20:00",
+          "outdoor_seating": "backyard",
+          "toilets": "yes",
+          "toilets:access": "permissive",
+          "toilets:unisex": "no",
+          "toilets:wheelchair": "yes"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0743912, 40.5881588] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6222297638",
+      "properties": {
+        "type": "node",
+        "id": "6222297638",
+        "tags": {
+          "amenity": "pub",
+          "name": "Choice City Wings",
+          "opening_hours": "Mo-Su 11:00-22:00",
+          "website": "http://www.choicecitywings.com/"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0781491, 40.5844754] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6279297285",
+      "properties": {
+        "type": "node",
+        "id": "6279297285",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "347",
+          "addr:postcode": "80525",
+          "addr:state": "CO",
+          "addr:street": "East Foothills Parkway",
+          "addr:unit": "120",
+          "amenity": "pub",
+          "contact:phone": "+1-833-473-6233",
+          "contact:website": "https://www.hopgrenadefoco.com",
+          "name": "The Hop Grenade",
+          "opening_hours": "Mo-Th 16:00-22:00; Fr-Sa 12:00-23:00; Su 12:00-22:00"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0733482, 40.5421445] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6495370315",
+      "properties": {
+        "type": "node",
+        "id": "6495370315",
+        "tags": { "amenity": "pub", "name": "The Colorado Room" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0767676, 40.5785429] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6938233190",
+      "properties": {
+        "type": "node",
+        "id": "6938233190",
+        "tags": { "amenity": "pub" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.068551, 40.5928714] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7360232812",
+      "properties": {
+        "type": "node",
+        "id": "7360232812",
+        "tags": { "amenity": "pub", "name": "West End Pub" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0975656, 40.551683] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4192679673",
+      "properties": {
+        "type": "node",
+        "id": "4192679673",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "2601",
+          "addr:postcode": "80525",
+          "addr:state": "CO",
+          "addr:street": "South Lemay Avenue",
+          "craft": "brewery",
+          "name": "Elevation 5003 Distillery",
+          "opening_hours": "We-Th 16:00-20:00; Fr 14:00-20:00; Sa 12:00-20:00",
+          "phone": "+1-970-568-8356",
+          "website": "elevation5003.com/",
+          "wheelchair": "yes"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0597992, 40.5517917] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6409413023",
+      "properties": {
+        "type": "node",
+        "id": "6409413023",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "2724",
+          "addr:state": "CO",
+          "addr:street": "McClelland Drive",
+          "addr:unit": "190",
+          "contact:phone": "+1-970-286-2855",
+          "contact:website": "https://maxlinebrewing.com/",
+          "craft": "brewery",
+          "name": "Maxline Brewing",
+          "opening_hours": "Mo-We 12:00-21:00; Th-Fr 12:00-22:00; Sa 11:00-22:00; Su 12:00-19:00"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0793036, 40.5497451] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7064946687",
+      "properties": {
+        "type": "node",
+        "id": "7064946687",
+        "tags": {
+          "addr:unit": "194",
+          "craft": "brewery",
+          "name": "Gilded Goat Brewing Company"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0752532, 40.5397041] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7859646081",
+      "properties": {
+        "type": "node",
+        "id": "7859646081",
+        "tags": {
+          "addr:unit": "2",
+          "craft": "brewery",
+          "name": "Envy Brewing"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0212179, 40.5227808] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/696277734",
+      "properties": {
+        "type": "node",
+        "id": "696277734",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "356",
+          "addr:postcode": "80525",
+          "addr:state": "CO",
+          "addr:street": "East Harmony Road",
+          "contact:phone": "+1-970-377-0202",
+          "name": "Crystal's Liquor",
+          "opening_hours": "Mo-Th 09:00-23:00; Fr-Sa 09:00-24:00; Su 10:00-22:00",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0712572, 40.5240781] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/955108844",
+      "properties": {
+        "type": "node",
+        "id": "955108844",
+        "tags": { "name": "Wilbur's Total Beverage", "shop": "alcohol" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0783732, 40.5587595] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1216809631",
+      "properties": {
+        "type": "node",
+        "id": "1216809631",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "2608",
+          "addr:postcode": "80525-2803",
+          "addr:street": "South Timberline Road",
+          "addr:suite": "112",
+          "contact:phone": "+1-970-267-9463",
+          "name": "Fabby's Wine & Spirits",
+          "opening_hours": "Mo-Th 09:00-22:00; Fr-Sa 09:00-23:00; Su 10:00-23:00",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0370143, 40.5517165] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1705273488",
+      "properties": {
+        "type": "node",
+        "id": "1705273488",
+        "tags": { "shop": "alcohol" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0943317, 40.5375013] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1895219680",
+      "properties": {
+        "type": "node",
+        "id": "1895219680",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "2601",
+          "addr:postcode": "80525",
+          "addr:state": "CO",
+          "addr:street": "South Lemay Avenue",
+          "addr:suite": "46",
+          "contact:phone": "+1-970-266-2686",
+          "name": "Moon Dance Wine & Spirits",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0591205, 40.5507463] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2183825023",
+      "properties": {
+        "type": "node",
+        "id": "2183825023",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "3645",
+          "addr:postcode": "80525-3058",
+          "addr:state": "CO",
+          "addr:street": "South College Avenue",
+          "addr:unit": "9",
+          "contact:phone": "+1-970-223-9463",
+          "name": "Cottonwood Liquors",
+          "opening_hours": "Mo-Th 08:00-23:00; Sa-Su 08:00-23:50",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0775188, 40.5368564] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2668099241",
+      "properties": {
+        "type": "node",
+        "id": "2668099241",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "1007",
+          "addr:postcode": "80525-8883",
+          "addr:street": "East Harmony Road",
+          "contact:phone": "+1-970-818-8956",
+          "contact:website": "http://fishsliquor.com/",
+          "name": "Fish's Liquor",
+          "opening_hours": "Mo-Th 08:00-23:00; Fr-Sa 08:00-23:30; Su 10:00-19:00",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0593233, 40.5218847] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2716343632",
+      "properties": {
+        "type": "node",
+        "id": "2716343632",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "1119",
+          "addr:postcode": "80526-6030",
+          "addr:state": "CO",
+          "addr:street": "West Drake Road",
+          "addr:suite": "C34",
+          "contact:phone": "+1-970-223-3633",
+          "drive_through": "no",
+          "name": "Ram Liquor",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0971965, 40.5515927] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2857392770",
+      "properties": {
+        "type": "node",
+        "id": "2857392770",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "1015",
+          "addr:postcode": "80521-4240",
+          "addr:state": "CO",
+          "addr:street": "South Taft Hill Road",
+          "addr:suite": "E",
+          "contact:phone": "+1-970-221-3722",
+          "name": "Saddle Up Liquors",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.1166967, 40.5734919] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3372723098",
+      "properties": {
+        "type": "node",
+        "id": "3372723098",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "2100",
+          "addr:postcode": "80526",
+          "addr:state": "CO",
+          "addr:street": "West Drake Road",
+          "addr:unit": "11",
+          "contact:email": "pringles@pringleswine.com",
+          "contact:website": "http://www.pringleswine.com/",
+          "name": "Pringles",
+          "opening_hours": "Mo-Th 09:30-22:00; Fr 09:30-23:00; Sa 09:00-23:00; Su 12:00-19:00",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.1155823, 40.5532056] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3386912916",
+      "properties": {
+        "type": "node",
+        "id": "3386912916",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "737",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "South Lemay Avenue",
+          "contact:phone": "+1-970-224-4873",
+          "name": "Lemay Liquors",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0595038, 40.5768557] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3877230456",
+      "properties": {
+        "type": "node",
+        "id": "3877230456",
+        "tags": { "name": "RJ's Wine & Spirits", "shop": "alcohol" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0274348, 40.5259603] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5590813816",
+      "properties": {
+        "type": "node",
+        "id": "5590813816",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "1820",
+          "addr:postcode": "80524",
+          "addr:state": "CO",
+          "addr:street": "North College Avenue",
+          "contact:phone": "+1-970-221-9100",
+          "contact:website": "http://www.bullfrogwineandspirits.com/",
+          "name": "Bullfrog Wine and Spirits",
+          "opening_hours": "Mo-Th 08:30-22:00; Fr 08:30-23:00; Sa 09:00-23:00; Su 10:00-20:00",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0736833, 40.6111298] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6415374569",
+      "properties": {
+        "type": "node",
+        "id": "6415374569",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "1115",
+          "addr:postcode": "80526",
+          "addr:state": "CO",
+          "addr:street": "West Prospect Road",
+          "drive_through": "no",
+          "name": "Prospect Liquors",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0975229, 40.5666816] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6540368207",
+      "properties": {
+        "type": "node",
+        "id": "6540368207",
+        "tags": { "name": "Old Town Wine and Spirits", "shop": "alcohol" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0767685, 40.5849331] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6543551315",
+      "properties": {
+        "type": "node",
+        "id": "6543551315",
+        "tags": { "name": "Zippy's Liquor", "shop": "alcohol" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0762734, 40.4795145] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6556522362",
+      "properties": {
+        "type": "node",
+        "id": "6556522362",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "1501",
+          "addr:postcode": "80521",
+          "addr:state": "CO",
+          "addr:street": "West Elizabeth Street",
+          "name": "C&C Liquor",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.1034869, 40.5743141] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7064946688",
+      "properties": {
+        "type": "node",
+        "id": "7064946688",
+        "tags": {
+          "addr:unit": "196",
+          "name": "Square Beverage",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0754383, 40.5397082] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7100236281",
+      "properties": {
+        "type": "node",
+        "id": "7100236281",
+        "tags": { "name": "Wine & Liquor Specials", "shop": "alcohol" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0789172, 40.5556002] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7168232784",
+      "properties": {
+        "type": "node",
+        "id": "7168232784",
+        "tags": {
+          "addr:unit": "100",
+          "name": "Harmony Liquor",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0761343, 40.5230515] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7199094079",
+      "properties": {
+        "type": "node",
+        "id": "7199094079",
+        "tags": {
+          "addr:city": "Fort Collins",
+          "addr:housenumber": "1671",
+          "addr:postcode": "80525",
+          "addr:state": "CO",
+          "addr:street": "South College Avenue",
+          "name": "The Perfect Pour",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0775843, 40.5653233] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7261912996",
+      "properties": {
+        "type": "node",
+        "id": "7261912996",
+        "tags": {
+          "addr:unit": "2",
+          "name": "Premier Wine & Spirits",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0531513, 40.5250321] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7293355243",
+      "properties": {
+        "type": "node",
+        "id": "7293355243",
+        "tags": { "name": "Creekside Liquors", "shop": "alcohol" },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0965302, 40.5633226] }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7360232818",
+      "properties": {
+        "type": "node",
+        "id": "7360232818",
+        "tags": {
+          "name": "Neighborhood Liquors",
+          "opening_hours": "Mo-Su 09:00-23:59",
+          "shop": "alcohol"
+        },
+        "relations": [],
+        "meta": {}
+      },
+      "geometry": { "type": "Point", "coordinates": [-105.0787076, 40.5215241] }
+    }
+  ]
+}

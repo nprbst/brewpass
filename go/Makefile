@@ -1,16 +1,4 @@
-# Show this help prompt.
-help:
-	@ echo '  Usage:'
-	@ echo '    make <target> [flags...]'
-	@ echo ''
-	@ echo '  Targets:'
-	@ awk '/^#/{ comment = substr($$0,3) } comment && /^[a-zA-Z][a-zA-Z0-9_-]+ ?:/{ print "   ", $$1, comment }' $(MAKEFILE_LIST) | column -t -s ':' | sort
-	@ echo ''
-	@ echo '  Flags:'
-	@ awk '/^#/{ comment = substr($$0,3) } comment && /^[a-zA-Z][a-zA-Z0-9_-]+ ?\?=/{ print "   ", $$1, $$2, comment }' $(MAKEFILE_LIST) | column -t -s '?=' | sort
-	@ echo ''
-.PHONY: help
-# CREDIT: https://github.com/ianstormtaylor/makefile-help
+include ../mk/Makefile.help
 
 # Generate sources from schema.graphql
 graphql-gen:

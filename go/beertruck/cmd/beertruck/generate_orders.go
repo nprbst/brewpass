@@ -105,21 +105,21 @@ func randVenue(ctx context.Context, store *db.DB) (*db.Venue, error) {
 func (om *orderMaker) makeOrder(t time.Time) (*db.CreateOrderRequest, error) {
 	switch t.Hour() {
 	case 6, 7, 8:
-		return om.orderBeerWithBreakfast()
-	case 9, 10, 14, 15, 16, 22, 23:
-		return om.orderBeerWithSnacks()
+		return om.orderBeerWith(db.MenuItemTypeBreakfast, t)
 	case 11, 12, 13:
-		return om.orderBeerWithLunch()
+		return om.orderBeerWith(db.MenuItemTypeLunch, t)
 	case 17, 18, 19:
-		return om.orderBeerWithDinner()
+		return om.orderBeerWith(db.MenuItemTypeDinner, t)
 	case 20, 21:
-		return om.orderBeerWithDessert()
+		return om.orderBeerWith(db.MenuItemTypeDessert, t)
+	case 0, 1, 2, 3, 4, 5, 9, 10, 14, 15, 16, 22, 23:
+		return om.orderBeerWith(db.MenuItemTypeSnack, t)
 	default:
 		return &db.CreateOrderRequest{}, nil
 	}
 }
 
-func (om *orderMaker) orderBeerWith(itemType db.MenuItemType) (*db.CreateOrderRequest, error) {
+func (om *orderMaker) orderBeerWith(itemType db.MenuItemType, t time.Time) (*db.CreateOrderRequest, error) {
 	var items []*db.MenuItem
 
 	beers, err := om.store.AllMenuItemsByVenueAndType(context.Background(), om.venue.ID, db.MenuItemTypeBeer)
@@ -143,26 +143,6 @@ func (om *orderMaker) orderBeerWith(itemType db.MenuItemType) (*db.CreateOrderRe
 	return &db.CreateOrderRequest{
 		Venue:     om.venue,
 		Items:     items,
-		OrderedAt: time.Now(),
+		OrderedAt: t,
 	}, nil
-}
-
-func (om *orderMaker) orderBeerWithBreakfast() (*db.CreateOrderRequest, error) {
-	return om.orderBeerWith(db.MenuItemTypeBreakfast)
-}
-
-func (om *orderMaker) orderBeerWithSnacks() (*db.CreateOrderRequest, error) {
-	return om.orderBeerWith(db.MenuItemTypeSnack)
-}
-
-func (om *orderMaker) orderBeerWithLunch() (*db.CreateOrderRequest, error) {
-	return om.orderBeerWith(db.MenuItemTypeLunch)
-}
-
-func (om *orderMaker) orderBeerWithDinner() (*db.CreateOrderRequest, error) {
-	return om.orderBeerWith(db.MenuItemTypeDinner)
-}
-
-func (om *orderMaker) orderBeerWithDessert() (*db.CreateOrderRequest, error) {
-	return om.orderBeerWith(db.MenuItemTypeDessert)
 }

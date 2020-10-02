@@ -38,7 +38,7 @@ func (o CreateOrderRequest) String() string {
 	for _, i := range o.Items {
 		items = append(items, i.Name)
 	}
-	return fmt.Sprintf("%s with %s from %s",
+	return fmt.Sprintf("%s beer with %s from %s",
 		items[0], strings.Join(items[1:], " and "), o.Venue.Name)
 }
 

@@ -5,9 +5,34 @@
   - name: venue
     using:
       foreign_key_constraint_on: venue_id
+  array_relationships:
+  - name: order_items
+    using:
+      foreign_key_constraint_on:
+        column: menu_item_id
+        table:
+          schema: public
+          name: order_items
 - table:
     schema: public
     name: nearby_venues
+- table:
+    schema: public
+    name: order_items
+  object_relationships:
+  - name: menu_item
+    using:
+      foreign_key_constraint_on: menu_item_id
+  - name: venue
+    using:
+      foreign_key_constraint_on: venue_id
+- table:
+    schema: public
+    name: orders
+  object_relationships:
+  - name: venue
+    using:
+      foreign_key_constraint_on: venue_id
 - table:
     schema: public
     name: venues

@@ -14,23 +14,23 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  api-server:
-    build:
-      context: ./go
-      dockerfile: Dockerfile.dev
-    image: brewpass-go-dev:latest
-    depends_on:
-      - postgres
-    expose:
-      - "9000"
-    working_dir: /app/go
-    command: make dev
-    environment:
-      GOCACHE: /go/pkg/go-cache
-      PG_URL: postgres://brewpass-dev:brewpass-dev@postgres:5432/brewpass-dev?sslmode=disable
-    volumes:
-      - .:/app
-      - go_pkg:/go/pkg
+  # api-server:
+  #   build:
+  #     context: ./go
+  #     dockerfile: Dockerfile.dev
+  #   image: brewpass-go-dev:latest
+  #   depends_on:
+  #     - postgres
+  #   expose:
+  #     - "9000"
+  #   working_dir: /app/go
+  #   command: make dev
+  #   environment:
+  #     GOCACHE: /go/pkg/go-cache
+  #     PG_URL: postgres://brewpass-dev:brewpass-dev@postgres:5432/brewpass-dev?sslmode=disable
+  #   volumes:
+  #     - .:/app
+  #     - go_pkg:/go/pkg
 
   hasura:
     image: hasura/graphql-engine:v1.3.2.cli-migrations-v2

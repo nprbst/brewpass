@@ -55,3 +55,16 @@ func (db *DB) AllMenuItemsByVenue(ctx context.Context, venueID uint64) ([]*MenuI
 
 	return items, nil
 }
+
+func (db *DB) AllMenuItemsByVenueAndType(ctx context.Context, venueID uint64, itemType MenuItemType) ([]*MenuItem, error) {
+	var items []*MenuItem
+	err := db.pg.Model(&items).
+		Where("venue_id = ?", venueID).
+		Where("item_type = ?", itemType).
+		Select()
+	if err != nil {
+		return nil, err
+	}
+
+	return items, nil
+}

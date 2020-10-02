@@ -63,6 +63,11 @@ backend-down:
 	@docker-compose down
 .PHONY: backend-down
 
+# Clean up backend docker volumes
+backend-clean:
+	@docker volume rm brewpass_postgres_data
+.PHONY: backend-clean
+
 # Restart the backend services
 backend-restart:
 	@docker-compose restart

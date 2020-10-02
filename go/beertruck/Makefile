@@ -32,10 +32,10 @@ run: build
 	@../bin/${NAME} ${ARGS}
 
 venues: build
-	@../bin/${NAME} generate venues --file osm/result.osm.json
+	@../bin/${NAME} generate venues --file osm/result.osm.json ${ARGS}
 
 menus: build
-	@../bin/${NAME} generate menus
+	@../bin/${NAME} generate menus ${ARGS}
 
-activity: build
-	@../bin/${NAME} generate activity
+orders: build
+	@../bin/${NAME} generate orders ${ARGS}

@@ -2,42 +2,36 @@ package main
 
 import (
 	"fmt"
+	"math"
+	"math/rand"
 	"sort"
+	"time"
 )
 
-/*
-Given an []int, return an []int where the corresponding indices are a count of how many numbers they're bigger than.
-Example: [6, 2, 3, 9] => [2, 0, 1, 3]
-Has to be less than n²
-*/
-
 func main() {
-	in := []int{6, 2, 3, 6, 9}
-
-	// This copy wouldn't be necessary if sort.Ints was immutable
-	ordered := make([]int, len(in))
-	copy(ordered, in)
-
-	sort.Ints(ordered)
-
-	// Take advantage of the sorted index order
-	// ...but account for sequential duplicates
-	mapped := make(map[int]int)
-	last := 0
-	less := 0
-	for idx, val := range ordered {
-		if idx > 0 && val > last {
-			less++
-		}
-		last = val
-
-		mapped[val] = less
+	rand.Seed(time.Now().UnixNano())
+	len := 50
+	hist := make(map[int]int)
+	for i := 0; i < 10000; i++ {
+		idx := randIndex(len)
+		hist[idx] = hist[idx] + 1
 	}
-
-	out := make([]int, len(in))
-	for idx, val := range in {
-		out[idx] = mapped[val]
+	var idxs []int
+	for idx := range hist {
+		idxs = append(idxs, idx)
 	}
+	sort.IntSlice(idxs).Sort()
+	for _, idx := range idxs {
+		fmt.Printf("%2d => %d\n", idx, hist[idx])
+	}
+}
 
-	fmt.Printf("%v => %v\n", in, out)
+func randIndex(len int) int {
+	max := float64(len - 1)
+	div := 4.0 / float64(len)
+	norm := rand.NormFloat64()
+	return int(
+		math.Min(max,
+			math.Ceil(
+				math.Abs(norm/div))))
 }

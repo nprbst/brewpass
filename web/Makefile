@@ -1,21 +1,16 @@
 include ../mk/Makefile.help
 
-# Generate sources from schema.graphql
-graphql-gen:
-	
-.PHONY: graphql-gen
-
-# Run air to hot-rebuild the api-server project
+# Run in development mode
 dev:
 	@yarn dev
 .PHONY: dev
 
-# Build api-server binary
+# Build dist
 build: 
 	@yarn build
 .PHONY: build
 
-# Go run api-server
+# Serve dist
 start: build
 	@yarn start
 .PHONY: start

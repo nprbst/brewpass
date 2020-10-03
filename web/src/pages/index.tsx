@@ -1,8 +1,8 @@
-import { Text } from "@chakra-ui/core";
+import { Text, Spinner } from "@chakra-ui/core";
 
 import { Container } from "../components/Container";
 import { Main } from "../components/Main";
-import { OrderStack } from "../components/OrderStack";
+import { OrderScroll } from "../components/OrderScroll";
 import { OrderProps } from "../components/OrderTile";
 import { Footer } from "../components/Footer";
 
@@ -59,9 +59,8 @@ const fakeOrders: OrderProps[] = [
 const Index = () => (
   <Container>
     <Main>
-      <OrderStack orders={fakeOrders} />
+      <OrderScroll orders={fakeOrders} />
     </Main>
-
     <Footer>
       <Text>Made with 🍺&nbsp; and ❤️&nbsp; by</Text>&nbsp;
       <Text fontWeight={800}> Brewpass</Text>

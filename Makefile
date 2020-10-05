@@ -45,7 +45,7 @@ backend-build:
 
 # Start the backend services
 backend-up:
-	@docker-compose up --detach postgres hasura api-server nginx
+	@docker-compose up --detach postgres hasura nginx
 .PHONY: backend-up
 
 # Tail running docker-compose containers

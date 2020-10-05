@@ -57,7 +57,7 @@ services:
   nginx:
     image: nginx:latest
     depends_on:
-      - api-server
+      # - api-server
       - hasura
     ports:
       - "3000:3000"

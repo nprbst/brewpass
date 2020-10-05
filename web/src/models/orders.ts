@@ -102,7 +102,7 @@ function hourDiff(order: OrderInstance): number {
 function hScore(order: OrderInstance): number {
   const sameHourWeight = 20;
   const adjacentHourWeight = 10;
-  const recencyWeight = 1;
+  const recencyWeight = 1.5;
   const countWeight = 3;
   // TODO: take into account total orders, recency and time-of-day
 

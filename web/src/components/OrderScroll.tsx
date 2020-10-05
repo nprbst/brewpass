@@ -1,27 +1,37 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 import { debounce } from "lodash";
-import { Box, Spinner, Text } from "@chakra-ui/core";
+import { Flex, Text, Image } from "@chakra-ui/core";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { useMst } from "../mst";
+import { useQuery } from "../models";
 
 import { OrderStack } from "./OrderStack";
 
 export const OrderScroll = observer(() => {
-  const state = useMst();
-  const { orders, more } = state;
+  const { store /* error, loading, setQuery */ } = useQuery();
+  // (store) =>
+  //   store.loadInitial()
+  // );
 
-  const next = debounce(state.fetchMore, 500, { trailing: true });
-  const refresh = state.reset;
+  const dataLength = store.sortedOrderItems.length;
+  const hasMore = () => dataLength < 200;
+  const next = debounce(store.loadMore, 500, { trailing: true });
+  const refresh = store.loadInitial;
   const spinner = (
-    <Box pt="2rem" textAlign="center">
-      <Spinner />
-    </Box>
+    <Flex pt="2rem" align="center" justify="center">
+      {/* <Spinner /> */}
+      <Image
+        src="/img/clinking_beer_mugs.gif"
+        height="128px"
+        width="128px"
+        align="center"
+      />
+    </Flex>
   );
   const thatsAll = (
     <Text mt="2rem" fontSize="xl" color="gray.400" textAlign="center">
-      The End
+      We're all tapped out!
     </Text>
   );
   const pullDown = (
@@ -34,13 +44,12 @@ export const OrderScroll = observer(() => {
       &#8593; Release to refresh
     </Text>
   );
-  // console.log("_orders", _orders.length);
 
   return (
     <InfiniteScroll
-      dataLength={orders.size}
+      dataLength={dataLength}
       next={next}
-      hasMore={more}
+      hasMore={hasMore()}
       loader={spinner}
       endMessage={thatsAll}
       refreshFunction={refresh}
@@ -49,7 +58,10 @@ export const OrderScroll = observer(() => {
       pullDownToRefreshContent={pullDown}
       releaseToRefreshContent={release}
     >
-      <OrderStack orders={state.listFeatured} />
+      <OrderStack
+        items={store.sortedOrderItems}
+        virtualTime={store.virtualTime}
+      />
     </InfiniteScroll>
   );
 });

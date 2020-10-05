@@ -28,7 +28,7 @@
       foreign_key_constraint_on: venue_id
 - table:
     schema: public
-    name: order_items_10_mins
+    name: order_items_by_hour
 - table:
     schema: public
     name: orders

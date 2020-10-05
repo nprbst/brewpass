@@ -1,26 +1,28 @@
 import { Stack } from "@chakra-ui/core";
-import React from "react";
+import { observer } from "mobx-react-lite";
+import { OrderInstance } from "../models/orders";
 
-import { OrderProps, OrderTile } from "./OrderTile";
+import { OrderTile } from "./OrderTile";
 
 export interface OrderStackProps {
-  orders: OrderProps[];
+  orders: OrderInstance[];
 }
 
-export const OrderStack = ({ orders }: OrderStackProps) => {
+export const OrderStack = observer(({ orders }: OrderStackProps) => {
   console.log("orders", orders.length);
 
   return (
     <Stack spacing="-1px">
-      {orders.map(({ item, venue, ago, recent }, index) => (
+      {orders.map(({ id, item, venue, lastOrderedMinAgo, recentCount }) => (
         <OrderTile
-          key={index}
+          key={id}
+          id={id}
           item={item}
           venue={venue}
-          ago={ago}
-          recent={recent}
+          ago={lastOrderedMinAgo}
+          recent={recentCount}
         />
       ))}
     </Stack>
   );
-};
+});

@@ -1,32 +1,19 @@
+import React from "react";
+import { observer } from "mobx-react-lite";
 import { debounce } from "lodash";
 import { Box, Spinner, Text } from "@chakra-ui/core";
-import React, { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { Footer } from "./Footer";
+import { useMst } from "../mst";
+
 import { OrderStack } from "./OrderStack";
-import { OrderProps } from "./OrderTile";
 
-export interface OrderScrollProps {
-  orders: OrderProps[];
-}
+export const OrderScroll = observer(() => {
+  const state = useMst();
+  const { orders, more } = state;
 
-export const OrderScroll = ({ orders }: OrderScrollProps) => {
-  const [_orders, setOrders] = useState(orders);
-  const next = debounce(
-    () => {
-      setTimeout(() => {
-        setOrders([..._orders, ...orders]);
-      }, 200);
-    },
-    500,
-    { trailing: true }
-  );
-  const refresh = () => {
-    setTimeout(() => {
-      setOrders(orders);
-    }, 200);
-  };
+  const next = debounce(state.fetchMore, 500, { trailing: true });
+  const refresh = state.reset;
   const spinner = (
     <Box pt="2rem" textAlign="center">
       <Spinner />
@@ -51,9 +38,9 @@ export const OrderScroll = ({ orders }: OrderScrollProps) => {
 
   return (
     <InfiniteScroll
-      dataLength={_orders.length}
+      dataLength={orders.size}
       next={next}
-      hasMore={_orders.length < 100}
+      hasMore={more}
       loader={spinner}
       endMessage={thatsAll}
       refreshFunction={refresh}
@@ -62,7 +49,7 @@ export const OrderScroll = ({ orders }: OrderScrollProps) => {
       pullDownToRefreshContent={pullDown}
       releaseToRefreshContent={release}
     >
-      <OrderStack orders={_orders} />
+      <OrderStack orders={state.listFeatured} />
     </InfiniteScroll>
   );
-};
+});

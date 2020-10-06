@@ -33,7 +33,7 @@ hygen-new:
 # Generate sources from 
 graphql-gen:
 	@cd go;  make graphql-gen
-	@cd web; yarn codegen
+	@cd web; make mst-gql-gen
 .PHONY: graphql-gen
 
 
@@ -90,6 +90,6 @@ web-build:
 .PHONY: web-build
 
 # Start the frontend in production mode
-web-start: web-build
+web-start:
 	@cd web && yarn start
 .PHONY: web-start

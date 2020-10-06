@@ -1,6 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 import { debounce } from "lodash";
+import Head from "next/head";
 import { Flex, Text, Image } from "@chakra-ui/core";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -17,6 +18,7 @@ export const OrderScroll = observer(() => {
   const spinner = (
     <Flex pt="2rem" align="center" justify="center">
       <Image
+        ignoreFallback
         src="/img/clinking_beer_mugs-anim.gif"
         height="128px"
         width="128px"
@@ -28,6 +30,7 @@ export const OrderScroll = observer(() => {
     <>
       <Flex pt="2rem" align="center" justify="center">
         <Image
+          ignoreFallback
           src="/img/clinking_beer_mugs.gif"
           height="128px"
           width="128px"
@@ -51,22 +54,32 @@ export const OrderScroll = observer(() => {
   );
 
   return (
-    <InfiniteScroll
-      dataLength={dataLength}
-      next={next}
-      hasMore={hasMore()}
-      loader={spinner}
-      endMessage={thatsAll}
-      refreshFunction={refresh}
-      pullDownToRefresh
-      pullDownToRefreshThreshold={50}
-      pullDownToRefreshContent={pullDown}
-      releaseToRefreshContent={release}
-    >
-      <OrderStack
-        items={store.sortedOrderItems}
-        virtualTime={store.virtualTime}
-      />
-    </InfiniteScroll>
+    <>
+      <Head>
+        <link
+          rel="preload"
+          href="/img/clinking_beer_mugs-anim.gif"
+          as="image"
+        />
+        <link rel="preload" href="/img/clinking_beer_mugs.gif" as="image" />
+      </Head>
+      <InfiniteScroll
+        dataLength={dataLength}
+        next={next}
+        hasMore={hasMore()}
+        loader={spinner}
+        endMessage={thatsAll}
+        refreshFunction={refresh}
+        pullDownToRefresh
+        pullDownToRefreshThreshold={50}
+        pullDownToRefreshContent={pullDown}
+        releaseToRefreshContent={release}
+      >
+        <OrderStack
+          items={store.sortedOrderItems}
+          virtualTime={store.virtualTime}
+        />
+      </InfiniteScroll>
+    </>
   );
 });

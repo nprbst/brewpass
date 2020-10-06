@@ -31,11 +31,18 @@ ARGS?=""
 run: build
 	@../bin/${NAME} ${ARGS}
 
+# Generate venues from OpenStreetMap data
 venues: build
 	@../bin/${NAME} generate venues --file osm/result.osm.json ${ARGS}
 
+# Generate menu items for each venue
 menus: build
 	@../bin/${NAME} generate menus ${ARGS}
 
+# Generate order activity within a time distortion field
 orders: build
 	@../bin/${NAME} generate orders ${ARGS}
+
+# Show help for `make orders`
+orders-help: build
+	@../bin/${NAME} generate orders --help

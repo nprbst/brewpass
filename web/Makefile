@@ -11,7 +11,7 @@ build:
 .PHONY: build
 
 # Serve dist
-start: build
+start: 
 	@yarn start
 .PHONY: start
 

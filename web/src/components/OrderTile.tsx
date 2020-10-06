@@ -4,7 +4,6 @@ import FlashChange from "@avinlab/react-flash-change";
 
 export interface OrderProps {
   id?: string | null;
-  index: number;
   item?: string | null;
   venue?: string | null;
   ago?: number;
@@ -12,11 +11,11 @@ export interface OrderProps {
   score?: number;
 }
 
-const agoText = (ago: number): string | null => {
+const agoText = (ago?: number): string | null => {
   const agoInt = Math.round(ago || 0);
   let agoStr = "ordered seconds ago";
   if (agoInt > 1 && agoInt < 60) {
-    agoStr = "ordered " + Math.round(ago) + " minutes ago";
+    agoStr = "ordered " + agoInt + " minutes ago";
   } else if (agoInt >= 60 && agoInt < 120) {
     agoStr = "ordered an hour ago";
   } else if (agoInt >= 120 && agoInt < 23 * 60) {
@@ -28,7 +27,7 @@ const agoText = (ago: number): string | null => {
 };
 
 export const OrderTile = observer(
-  ({ id, item, venue, ago, recent, score }: OrderProps) => (
+  ({ item, venue, ago, recent, score }: OrderProps) => (
     <FlashChange
       value={score}
       className="flash-container"
@@ -48,12 +47,12 @@ export const OrderTile = observer(
           isTruncated
         >
           {item}
-          <Badge rounded="full" px="2" color="black.500" float="right">
+          {/* <Badge rounded="full" px="2" color="black.500" float="right">
             [{id}]
           </Badge>
           <Badge rounded="full" px="2" color="green.500" float="right">
             {score}
-          </Badge>
+          </Badge> */}
         </Box>
 
         <Box mb="2" fontWeight={700} fontSize="sm">
@@ -66,12 +65,9 @@ export const OrderTile = observer(
           </Badge>
         )) ||
           null}
-        {(ago && (
-          <Badge rounded="full" px="2" color="orange.500">
-            {agoText(ago)}
-          </Badge>
-        )) ||
-          null}
+        <Badge rounded="full" px="2" color="orange.500">
+          {agoText(ago)}
+        </Badge>
       </Box>
     </FlashChange>
   )

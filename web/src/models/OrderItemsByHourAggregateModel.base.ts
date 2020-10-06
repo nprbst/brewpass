@@ -1,6 +1,7 @@
 /* This is a mst-gql generated file, don't modify it manually */
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 
 import { IObservableArray } from "mobx"
 import { types } from "mobx-state-tree"

@@ -1,9 +1,6 @@
 import { Instance, types } from "mobx-state-tree";
 import { OrderBy } from "./OrderByEnum";
-import {
-  OrderItemsByHourModel,
-  OrderItemsByHourModelType,
-} from "./OrderItemsByHourModel";
+import { OrderItemsByHourModelType } from "./OrderItemsByHourModel";
 import { selectFromOrderItemsByHour } from "./OrderItemsByHourModel.base";
 import { RootStoreBase } from "./RootStore.base";
 

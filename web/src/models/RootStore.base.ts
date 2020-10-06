@@ -5,34 +5,6 @@ import { ObservableMap } from "mobx"
 import { types } from "mobx-state-tree"
 import { MSTGQLStore, configureStoreMixin, QueryOptions, withTypedRefs } from "mst-gql"
 
-import { IdTestModel, IdTestModelType } from "./IdTestModel"
-import { idTestModelPrimitives, IdTestModelSelector } from "./IdTestModel.base"
-import { IdTestAggregateModel, IdTestAggregateModelType } from "./IdTestAggregateModel"
-import { idTestAggregateModelPrimitives, IdTestAggregateModelSelector } from "./IdTestAggregateModel.base"
-import { IdTestAggregateFieldsModel, IdTestAggregateFieldsModelType } from "./IdTestAggregateFieldsModel"
-import { idTestAggregateFieldsModelPrimitives, IdTestAggregateFieldsModelSelector } from "./IdTestAggregateFieldsModel.base"
-import { IdTestAvgFieldsModel, IdTestAvgFieldsModelType } from "./IdTestAvgFieldsModel"
-import { idTestAvgFieldsModelPrimitives, IdTestAvgFieldsModelSelector } from "./IdTestAvgFieldsModel.base"
-import { IdTestMaxFieldsModel, IdTestMaxFieldsModelType } from "./IdTestMaxFieldsModel"
-import { idTestMaxFieldsModelPrimitives, IdTestMaxFieldsModelSelector } from "./IdTestMaxFieldsModel.base"
-import { IdTestMinFieldsModel, IdTestMinFieldsModelType } from "./IdTestMinFieldsModel"
-import { idTestMinFieldsModelPrimitives, IdTestMinFieldsModelSelector } from "./IdTestMinFieldsModel.base"
-import { IdTestMutationResponseModel, IdTestMutationResponseModelType } from "./IdTestMutationResponseModel"
-import { idTestMutationResponseModelPrimitives, IdTestMutationResponseModelSelector } from "./IdTestMutationResponseModel.base"
-import { IdTestStddevFieldsModel, IdTestStddevFieldsModelType } from "./IdTestStddevFieldsModel"
-import { idTestStddevFieldsModelPrimitives, IdTestStddevFieldsModelSelector } from "./IdTestStddevFieldsModel.base"
-import { IdTestStddevPopFieldsModel, IdTestStddevPopFieldsModelType } from "./IdTestStddevPopFieldsModel"
-import { idTestStddevPopFieldsModelPrimitives, IdTestStddevPopFieldsModelSelector } from "./IdTestStddevPopFieldsModel.base"
-import { IdTestStddevSampFieldsModel, IdTestStddevSampFieldsModelType } from "./IdTestStddevSampFieldsModel"
-import { idTestStddevSampFieldsModelPrimitives, IdTestStddevSampFieldsModelSelector } from "./IdTestStddevSampFieldsModel.base"
-import { IdTestSumFieldsModel, IdTestSumFieldsModelType } from "./IdTestSumFieldsModel"
-import { idTestSumFieldsModelPrimitives, IdTestSumFieldsModelSelector } from "./IdTestSumFieldsModel.base"
-import { IdTestVarPopFieldsModel, IdTestVarPopFieldsModelType } from "./IdTestVarPopFieldsModel"
-import { idTestVarPopFieldsModelPrimitives, IdTestVarPopFieldsModelSelector } from "./IdTestVarPopFieldsModel.base"
-import { IdTestVarSampFieldsModel, IdTestVarSampFieldsModelType } from "./IdTestVarSampFieldsModel"
-import { idTestVarSampFieldsModelPrimitives, IdTestVarSampFieldsModelSelector } from "./IdTestVarSampFieldsModel.base"
-import { IdTestVarianceFieldsModel, IdTestVarianceFieldsModelType } from "./IdTestVarianceFieldsModel"
-import { idTestVarianceFieldsModelPrimitives, IdTestVarianceFieldsModelSelector } from "./IdTestVarianceFieldsModel.base"
 import { MenuItemsModel, MenuItemsModelType } from "./MenuItemsModel"
 import { menuItemsModelPrimitives, MenuItemsModelSelector } from "./MenuItemsModel.base"
 import { MenuItemsAggregateModel, MenuItemsAggregateModelType } from "./MenuItemsAggregateModel"
@@ -93,32 +65,6 @@ import { NearbyVenuesVarianceFieldsModel, NearbyVenuesVarianceFieldsModelType } 
 import { nearbyVenuesVarianceFieldsModelPrimitives, NearbyVenuesVarianceFieldsModelSelector } from "./NearbyVenuesVarianceFieldsModel.base"
 import { OrderItemsModel, OrderItemsModelType } from "./OrderItemsModel"
 import { orderItemsModelPrimitives, OrderItemsModelSelector } from "./OrderItemsModel.base"
-import { OrderItems10MinsModel, OrderItems10MinsModelType } from "./OrderItems10MinsModel"
-import { orderItems10MinsModelPrimitives, OrderItems10MinsModelSelector } from "./OrderItems10MinsModel.base"
-import { OrderItems10MinsAggregateModel, OrderItems10MinsAggregateModelType } from "./OrderItems10MinsAggregateModel"
-import { orderItems10MinsAggregateModelPrimitives, OrderItems10MinsAggregateModelSelector } from "./OrderItems10MinsAggregateModel.base"
-import { OrderItems10MinsAggregateFieldsModel, OrderItems10MinsAggregateFieldsModelType } from "./OrderItems10MinsAggregateFieldsModel"
-import { orderItems10MinsAggregateFieldsModelPrimitives, OrderItems10MinsAggregateFieldsModelSelector } from "./OrderItems10MinsAggregateFieldsModel.base"
-import { OrderItems10MinsAvgFieldsModel, OrderItems10MinsAvgFieldsModelType } from "./OrderItems10MinsAvgFieldsModel"
-import { orderItems10MinsAvgFieldsModelPrimitives, OrderItems10MinsAvgFieldsModelSelector } from "./OrderItems10MinsAvgFieldsModel.base"
-import { OrderItems10MinsMaxFieldsModel, OrderItems10MinsMaxFieldsModelType } from "./OrderItems10MinsMaxFieldsModel"
-import { orderItems10MinsMaxFieldsModelPrimitives, OrderItems10MinsMaxFieldsModelSelector } from "./OrderItems10MinsMaxFieldsModel.base"
-import { OrderItems10MinsMinFieldsModel, OrderItems10MinsMinFieldsModelType } from "./OrderItems10MinsMinFieldsModel"
-import { orderItems10MinsMinFieldsModelPrimitives, OrderItems10MinsMinFieldsModelSelector } from "./OrderItems10MinsMinFieldsModel.base"
-import { OrderItems10MinsStddevFieldsModel, OrderItems10MinsStddevFieldsModelType } from "./OrderItems10MinsStddevFieldsModel"
-import { orderItems10MinsStddevFieldsModelPrimitives, OrderItems10MinsStddevFieldsModelSelector } from "./OrderItems10MinsStddevFieldsModel.base"
-import { OrderItems10MinsStddevPopFieldsModel, OrderItems10MinsStddevPopFieldsModelType } from "./OrderItems10MinsStddevPopFieldsModel"
-import { orderItems10MinsStddevPopFieldsModelPrimitives, OrderItems10MinsStddevPopFieldsModelSelector } from "./OrderItems10MinsStddevPopFieldsModel.base"
-import { OrderItems10MinsStddevSampFieldsModel, OrderItems10MinsStddevSampFieldsModelType } from "./OrderItems10MinsStddevSampFieldsModel"
-import { orderItems10MinsStddevSampFieldsModelPrimitives, OrderItems10MinsStddevSampFieldsModelSelector } from "./OrderItems10MinsStddevSampFieldsModel.base"
-import { OrderItems10MinsSumFieldsModel, OrderItems10MinsSumFieldsModelType } from "./OrderItems10MinsSumFieldsModel"
-import { orderItems10MinsSumFieldsModelPrimitives, OrderItems10MinsSumFieldsModelSelector } from "./OrderItems10MinsSumFieldsModel.base"
-import { OrderItems10MinsVarPopFieldsModel, OrderItems10MinsVarPopFieldsModelType } from "./OrderItems10MinsVarPopFieldsModel"
-import { orderItems10MinsVarPopFieldsModelPrimitives, OrderItems10MinsVarPopFieldsModelSelector } from "./OrderItems10MinsVarPopFieldsModel.base"
-import { OrderItems10MinsVarSampFieldsModel, OrderItems10MinsVarSampFieldsModelType } from "./OrderItems10MinsVarSampFieldsModel"
-import { orderItems10MinsVarSampFieldsModelPrimitives, OrderItems10MinsVarSampFieldsModelSelector } from "./OrderItems10MinsVarSampFieldsModel.base"
-import { OrderItems10MinsVarianceFieldsModel, OrderItems10MinsVarianceFieldsModelType } from "./OrderItems10MinsVarianceFieldsModel"
-import { orderItems10MinsVarianceFieldsModelPrimitives, OrderItems10MinsVarianceFieldsModelSelector } from "./OrderItems10MinsVarianceFieldsModel.base"
 import { OrderItemsAggregateModel, OrderItemsAggregateModelType } from "./OrderItemsAggregateModel"
 import { orderItemsAggregateModelPrimitives, OrderItemsAggregateModelSelector } from "./OrderItemsAggregateModel.base"
 import { OrderItemsAggregateFieldsModel, OrderItemsAggregateFieldsModelType } from "./OrderItemsAggregateFieldsModel"
@@ -233,9 +179,6 @@ import { VenuesVarianceFieldsModel, VenuesVarianceFieldsModelType } from "./Venu
 import { venuesVarianceFieldsModelPrimitives, VenuesVarianceFieldsModelSelector } from "./VenuesVarianceFieldsModel.base"
 
 
-import { IdTestConstraint } from "./IdTestConstraintEnum"
-import { IdTestSelectColumn } from "./IdTestSelectColumnEnum"
-import { IdTestUpdateColumn } from "./IdTestUpdateColumnEnum"
 import { MenuItemsConstraint } from "./MenuItemsConstraintEnum"
 import { MenuItemsSelectColumn } from "./MenuItemsSelectColumnEnum"
 import { MenuItemsUpdateColumn } from "./MenuItemsUpdateColumnEnum"
@@ -243,7 +186,6 @@ import { NearbyVenuesConstraint } from "./NearbyVenuesConstraintEnum"
 import { NearbyVenuesSelectColumn } from "./NearbyVenuesSelectColumnEnum"
 import { NearbyVenuesUpdateColumn } from "./NearbyVenuesUpdateColumnEnum"
 import { OrderBy } from "./OrderByEnum"
-import { OrderItems10MinsSelectColumn } from "./OrderItems10MinsSelectColumnEnum"
 import { OrderItemsByHourSelectColumn } from "./OrderItemsByHourSelectColumnEnum"
 import { OrderItemsConstraint } from "./OrderItemsConstraintEnum"
 import { OrderItemsSelectColumn } from "./OrderItemsSelectColumnEnum"
@@ -298,95 +240,6 @@ export type GetNearbyVenuesArgs = {
   bound?: number
   lat?: any
   long?: any
-}
-export type IdTestAggregateOrderBy = {
-  avg?: IdTestAvgOrderBy
-  count?: OrderBy
-  max?: IdTestMaxOrderBy
-  min?: IdTestMinOrderBy
-  stddev?: IdTestStddevOrderBy
-  stddev_pop?: IdTestStddevPopOrderBy
-  stddev_samp?: IdTestStddevSampOrderBy
-  sum?: IdTestSumOrderBy
-  var_pop?: IdTestVarPopOrderBy
-  var_samp?: IdTestVarSampOrderBy
-  variance?: IdTestVarianceOrderBy
-}
-export type IdTestArrRelInsertInput = {
-  data: IdTestInsertInput[]
-  on_conflict?: IdTestOnConflict
-}
-export type IdTestAvgOrderBy = {
-  bar?: OrderBy
-}
-export type IdTestBoolExp = {
-  _and?: IdTestBoolExp[]
-  _not?: IdTestBoolExp
-  _or?: IdTestBoolExp[]
-  bar?: BigintComparisonExp
-  foo?: StringComparisonExp
-  id?: UuidComparisonExp
-}
-export type IdTestIncInput = {
-  bar?: any
-}
-export type IdTestInsertInput = {
-  bar?: any
-  foo?: string
-  id?: any
-}
-export type IdTestMaxOrderBy = {
-  bar?: OrderBy
-  foo?: OrderBy
-  id?: OrderBy
-}
-export type IdTestMinOrderBy = {
-  bar?: OrderBy
-  foo?: OrderBy
-  id?: OrderBy
-}
-export type IdTestObjRelInsertInput = {
-  data: IdTestInsertInput
-  on_conflict?: IdTestOnConflict
-}
-export type IdTestOnConflict = {
-  constraint: IdTestConstraint
-  update_columns: IdTestUpdateColumn[]
-  where?: IdTestBoolExp
-}
-export type IdTestOrderBy = {
-  bar?: OrderBy
-  foo?: OrderBy
-  id?: OrderBy
-}
-export type IdTestPkColumnsInput = {
-  id: any
-}
-export type IdTestSetInput = {
-  bar?: any
-  foo?: string
-  id?: any
-}
-export type IdTestStddevOrderBy = {
-  bar?: OrderBy
-}
-export type IdTestStddevPopOrderBy = {
-  bar?: OrderBy
-}
-export type IdTestStddevSampOrderBy = {
-  bar?: OrderBy
-}
-export type IdTestSumOrderBy = {
-  bar?: OrderBy
-}
-export type IdTestVarPopOrderBy = {
-  bar?: OrderBy
-}
-export type IdTestVarSampOrderBy = {
-  bar?: OrderBy
-}
-export type IdTestVarianceOrderBy = {
-  bar?: OrderBy
 }
 export type JsonbComparisonExp = {
   _contained_in?: any
@@ -640,74 +493,6 @@ export type NearbyVenuesVarSampOrderBy = {
 export type NearbyVenuesVarianceOrderBy = {
   lat?: OrderBy
   long?: OrderBy
-}
-export type OrderItems10MinsAggregateOrderBy = {
-  avg?: OrderItems10MinsAvgOrderBy
-  count?: OrderBy
-  max?: OrderItems10MinsMaxOrderBy
-  min?: OrderItems10MinsMinOrderBy
-  stddev?: OrderItems10MinsStddevOrderBy
-  stddev_pop?: OrderItems10MinsStddevPopOrderBy
-  stddev_samp?: OrderItems10MinsStddevSampOrderBy
-  sum?: OrderItems10MinsSumOrderBy
-  var_pop?: OrderItems10MinsVarPopOrderBy
-  var_samp?: OrderItems10MinsVarSampOrderBy
-  variance?: OrderItems10MinsVarianceOrderBy
-}
-export type OrderItems10MinsAvgOrderBy = {
-  count?: OrderBy
-}
-export type OrderItems10MinsBoolExp = {
-  _and?: OrderItems10MinsBoolExp[]
-  _not?: OrderItems10MinsBoolExp
-  _or?: OrderItems10MinsBoolExp[]
-  bucket?: TimestampComparisonExp
-  count?: BigintComparisonExp
-  last_order?: TimestampComparisonExp
-  menu_item?: StringComparisonExp
-  venue?: StringComparisonExp
-}
-export type OrderItems10MinsMaxOrderBy = {
-  bucket?: OrderBy
-  count?: OrderBy
-  last_order?: OrderBy
-  menu_item?: OrderBy
-  venue?: OrderBy
-}
-export type OrderItems10MinsMinOrderBy = {
-  bucket?: OrderBy
-  count?: OrderBy
-  last_order?: OrderBy
-  menu_item?: OrderBy
-  venue?: OrderBy
-}
-export type OrderItems10MinsOrderBy = {
-  bucket?: OrderBy
-  count?: OrderBy
-  last_order?: OrderBy
-  menu_item?: OrderBy
-  venue?: OrderBy
-}
-export type OrderItems10MinsStddevOrderBy = {
-  count?: OrderBy
-}
-export type OrderItems10MinsStddevPopOrderBy = {
-  count?: OrderBy
-}
-export type OrderItems10MinsStddevSampOrderBy = {
-  count?: OrderBy
-}
-export type OrderItems10MinsSumOrderBy = {
-  count?: OrderBy
-}
-export type OrderItems10MinsVarPopOrderBy = {
-  count?: OrderBy
-}
-export type OrderItems10MinsVarSampOrderBy = {
-  count?: OrderBy
-}
-export type OrderItems10MinsVarianceOrderBy = {
-  count?: OrderBy
 }
 export type OrderItemsAggregateOrderBy = {
   avg?: OrderItemsAvgOrderBy
@@ -1078,17 +863,6 @@ export type TimestampComparisonExp = {
   _neq?: any
   _nin?: any[]
 }
-export type UuidComparisonExp = {
-  _eq?: any
-  _gt?: any
-  _gte?: any
-  _in?: any[]
-  _is_null?: boolean
-  _lt?: any
-  _lte?: any
-  _neq?: any
-  _nin?: any[]
-}
 export type VenuesAggregateOrderBy = {
   avg?: VenuesAvgOrderBy
   count?: OrderBy
@@ -1265,7 +1039,7 @@ type Refs = {
 */
 export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
   .named("RootStore")
-  .extend(configureStoreMixin([['id_test', () => IdTestModel], ['id_test_aggregate', () => IdTestAggregateModel], ['id_test_aggregate_fields', () => IdTestAggregateFieldsModel], ['id_test_avg_fields', () => IdTestAvgFieldsModel], ['id_test_max_fields', () => IdTestMaxFieldsModel], ['id_test_min_fields', () => IdTestMinFieldsModel], ['id_test_mutation_response', () => IdTestMutationResponseModel], ['id_test_stddev_fields', () => IdTestStddevFieldsModel], ['id_test_stddev_pop_fields', () => IdTestStddevPopFieldsModel], ['id_test_stddev_samp_fields', () => IdTestStddevSampFieldsModel], ['id_test_sum_fields', () => IdTestSumFieldsModel], ['id_test_var_pop_fields', () => IdTestVarPopFieldsModel], ['id_test_var_samp_fields', () => IdTestVarSampFieldsModel], ['id_test_variance_fields', () => IdTestVarianceFieldsModel], ['menu_items', () => MenuItemsModel], ['menu_items_aggregate', () => MenuItemsAggregateModel], ['menu_items_aggregate_fields', () => MenuItemsAggregateFieldsModel], ['menu_items_avg_fields', () => MenuItemsAvgFieldsModel], ['menu_items_max_fields', () => MenuItemsMaxFieldsModel], ['menu_items_min_fields', () => MenuItemsMinFieldsModel], ['menu_items_mutation_response', () => MenuItemsMutationResponseModel], ['menu_items_stddev_fields', () => MenuItemsStddevFieldsModel], ['menu_items_stddev_pop_fields', () => MenuItemsStddevPopFieldsModel], ['menu_items_stddev_samp_fields', () => MenuItemsStddevSampFieldsModel], ['menu_items_sum_fields', () => MenuItemsSumFieldsModel], ['menu_items_var_pop_fields', () => MenuItemsVarPopFieldsModel], ['menu_items_var_samp_fields', () => MenuItemsVarSampFieldsModel], ['menu_items_variance_fields', () => MenuItemsVarianceFieldsModel], ['mutation_root', () => MutationRootModel], ['nearby_venues', () => NearbyVenuesModel], ['nearby_venues_aggregate', () => NearbyVenuesAggregateModel], ['nearby_venues_aggregate_fields', () => NearbyVenuesAggregateFieldsModel], ['nearby_venues_avg_fields', () => NearbyVenuesAvgFieldsModel], ['nearby_venues_max_fields', () => NearbyVenuesMaxFieldsModel], ['nearby_venues_min_fields', () => NearbyVenuesMinFieldsModel], ['nearby_venues_mutation_response', () => NearbyVenuesMutationResponseModel], ['nearby_venues_stddev_fields', () => NearbyVenuesStddevFieldsModel], ['nearby_venues_stddev_pop_fields', () => NearbyVenuesStddevPopFieldsModel], ['nearby_venues_stddev_samp_fields', () => NearbyVenuesStddevSampFieldsModel], ['nearby_venues_sum_fields', () => NearbyVenuesSumFieldsModel], ['nearby_venues_var_pop_fields', () => NearbyVenuesVarPopFieldsModel], ['nearby_venues_var_samp_fields', () => NearbyVenuesVarSampFieldsModel], ['nearby_venues_variance_fields', () => NearbyVenuesVarianceFieldsModel], ['order_items', () => OrderItemsModel], ['order_items_10_mins', () => OrderItems10MinsModel], ['order_items_10_mins_aggregate', () => OrderItems10MinsAggregateModel], ['order_items_10_mins_aggregate_fields', () => OrderItems10MinsAggregateFieldsModel], ['order_items_10_mins_avg_fields', () => OrderItems10MinsAvgFieldsModel], ['order_items_10_mins_max_fields', () => OrderItems10MinsMaxFieldsModel], ['order_items_10_mins_min_fields', () => OrderItems10MinsMinFieldsModel], ['order_items_10_mins_stddev_fields', () => OrderItems10MinsStddevFieldsModel], ['order_items_10_mins_stddev_pop_fields', () => OrderItems10MinsStddevPopFieldsModel], ['order_items_10_mins_stddev_samp_fields', () => OrderItems10MinsStddevSampFieldsModel], ['order_items_10_mins_sum_fields', () => OrderItems10MinsSumFieldsModel], ['order_items_10_mins_var_pop_fields', () => OrderItems10MinsVarPopFieldsModel], ['order_items_10_mins_var_samp_fields', () => OrderItems10MinsVarSampFieldsModel], ['order_items_10_mins_variance_fields', () => OrderItems10MinsVarianceFieldsModel], ['order_items_aggregate', () => OrderItemsAggregateModel], ['order_items_aggregate_fields', () => OrderItemsAggregateFieldsModel], ['order_items_avg_fields', () => OrderItemsAvgFieldsModel], ['order_items_by_hour', () => OrderItemsByHourModel], ['order_items_by_hour_aggregate', () => OrderItemsByHourAggregateModel], ['order_items_by_hour_aggregate_fields', () => OrderItemsByHourAggregateFieldsModel], ['order_items_by_hour_avg_fields', () => OrderItemsByHourAvgFieldsModel], ['order_items_by_hour_max_fields', () => OrderItemsByHourMaxFieldsModel], ['order_items_by_hour_min_fields', () => OrderItemsByHourMinFieldsModel], ['order_items_by_hour_stddev_fields', () => OrderItemsByHourStddevFieldsModel], ['order_items_by_hour_stddev_pop_fields', () => OrderItemsByHourStddevPopFieldsModel], ['order_items_by_hour_stddev_samp_fields', () => OrderItemsByHourStddevSampFieldsModel], ['order_items_by_hour_sum_fields', () => OrderItemsByHourSumFieldsModel], ['order_items_by_hour_var_pop_fields', () => OrderItemsByHourVarPopFieldsModel], ['order_items_by_hour_var_samp_fields', () => OrderItemsByHourVarSampFieldsModel], ['order_items_by_hour_variance_fields', () => OrderItemsByHourVarianceFieldsModel], ['order_items_max_fields', () => OrderItemsMaxFieldsModel], ['order_items_min_fields', () => OrderItemsMinFieldsModel], ['order_items_mutation_response', () => OrderItemsMutationResponseModel], ['order_items_stddev_fields', () => OrderItemsStddevFieldsModel], ['order_items_stddev_pop_fields', () => OrderItemsStddevPopFieldsModel], ['order_items_stddev_samp_fields', () => OrderItemsStddevSampFieldsModel], ['order_items_sum_fields', () => OrderItemsSumFieldsModel], ['order_items_var_pop_fields', () => OrderItemsVarPopFieldsModel], ['order_items_var_samp_fields', () => OrderItemsVarSampFieldsModel], ['order_items_variance_fields', () => OrderItemsVarianceFieldsModel], ['orders', () => OrdersModel], ['orders_aggregate', () => OrdersAggregateModel], ['orders_aggregate_fields', () => OrdersAggregateFieldsModel], ['orders_avg_fields', () => OrdersAvgFieldsModel], ['orders_max_fields', () => OrdersMaxFieldsModel], ['orders_min_fields', () => OrdersMinFieldsModel], ['orders_mutation_response', () => OrdersMutationResponseModel], ['orders_stddev_fields', () => OrdersStddevFieldsModel], ['orders_stddev_pop_fields', () => OrdersStddevPopFieldsModel], ['orders_stddev_samp_fields', () => OrdersStddevSampFieldsModel], ['orders_sum_fields', () => OrdersSumFieldsModel], ['orders_var_pop_fields', () => OrdersVarPopFieldsModel], ['orders_var_samp_fields', () => OrdersVarSampFieldsModel], ['orders_variance_fields', () => OrdersVarianceFieldsModel], ['query_root', () => QueryRootModel], ['subscription_root', () => SubscriptionRootModel], ['venues', () => VenuesModel], ['venues_aggregate', () => VenuesAggregateModel], ['venues_aggregate_fields', () => VenuesAggregateFieldsModel], ['venues_avg_fields', () => VenuesAvgFieldsModel], ['venues_max_fields', () => VenuesMaxFieldsModel], ['venues_min_fields', () => VenuesMinFieldsModel], ['venues_mutation_response', () => VenuesMutationResponseModel], ['venues_stddev_fields', () => VenuesStddevFieldsModel], ['venues_stddev_pop_fields', () => VenuesStddevPopFieldsModel], ['venues_stddev_samp_fields', () => VenuesStddevSampFieldsModel], ['venues_sum_fields', () => VenuesSumFieldsModel], ['venues_var_pop_fields', () => VenuesVarPopFieldsModel], ['venues_var_samp_fields', () => VenuesVarSampFieldsModel], ['venues_variance_fields', () => VenuesVarianceFieldsModel]], ['order_items_by_hour'], "js"))
+  .extend(configureStoreMixin([['menu_items', () => MenuItemsModel], ['menu_items_aggregate', () => MenuItemsAggregateModel], ['menu_items_aggregate_fields', () => MenuItemsAggregateFieldsModel], ['menu_items_avg_fields', () => MenuItemsAvgFieldsModel], ['menu_items_max_fields', () => MenuItemsMaxFieldsModel], ['menu_items_min_fields', () => MenuItemsMinFieldsModel], ['menu_items_mutation_response', () => MenuItemsMutationResponseModel], ['menu_items_stddev_fields', () => MenuItemsStddevFieldsModel], ['menu_items_stddev_pop_fields', () => MenuItemsStddevPopFieldsModel], ['menu_items_stddev_samp_fields', () => MenuItemsStddevSampFieldsModel], ['menu_items_sum_fields', () => MenuItemsSumFieldsModel], ['menu_items_var_pop_fields', () => MenuItemsVarPopFieldsModel], ['menu_items_var_samp_fields', () => MenuItemsVarSampFieldsModel], ['menu_items_variance_fields', () => MenuItemsVarianceFieldsModel], ['mutation_root', () => MutationRootModel], ['nearby_venues', () => NearbyVenuesModel], ['nearby_venues_aggregate', () => NearbyVenuesAggregateModel], ['nearby_venues_aggregate_fields', () => NearbyVenuesAggregateFieldsModel], ['nearby_venues_avg_fields', () => NearbyVenuesAvgFieldsModel], ['nearby_venues_max_fields', () => NearbyVenuesMaxFieldsModel], ['nearby_venues_min_fields', () => NearbyVenuesMinFieldsModel], ['nearby_venues_mutation_response', () => NearbyVenuesMutationResponseModel], ['nearby_venues_stddev_fields', () => NearbyVenuesStddevFieldsModel], ['nearby_venues_stddev_pop_fields', () => NearbyVenuesStddevPopFieldsModel], ['nearby_venues_stddev_samp_fields', () => NearbyVenuesStddevSampFieldsModel], ['nearby_venues_sum_fields', () => NearbyVenuesSumFieldsModel], ['nearby_venues_var_pop_fields', () => NearbyVenuesVarPopFieldsModel], ['nearby_venues_var_samp_fields', () => NearbyVenuesVarSampFieldsModel], ['nearby_venues_variance_fields', () => NearbyVenuesVarianceFieldsModel], ['order_items', () => OrderItemsModel], ['order_items_aggregate', () => OrderItemsAggregateModel], ['order_items_aggregate_fields', () => OrderItemsAggregateFieldsModel], ['order_items_avg_fields', () => OrderItemsAvgFieldsModel], ['order_items_by_hour', () => OrderItemsByHourModel], ['order_items_by_hour_aggregate', () => OrderItemsByHourAggregateModel], ['order_items_by_hour_aggregate_fields', () => OrderItemsByHourAggregateFieldsModel], ['order_items_by_hour_avg_fields', () => OrderItemsByHourAvgFieldsModel], ['order_items_by_hour_max_fields', () => OrderItemsByHourMaxFieldsModel], ['order_items_by_hour_min_fields', () => OrderItemsByHourMinFieldsModel], ['order_items_by_hour_stddev_fields', () => OrderItemsByHourStddevFieldsModel], ['order_items_by_hour_stddev_pop_fields', () => OrderItemsByHourStddevPopFieldsModel], ['order_items_by_hour_stddev_samp_fields', () => OrderItemsByHourStddevSampFieldsModel], ['order_items_by_hour_sum_fields', () => OrderItemsByHourSumFieldsModel], ['order_items_by_hour_var_pop_fields', () => OrderItemsByHourVarPopFieldsModel], ['order_items_by_hour_var_samp_fields', () => OrderItemsByHourVarSampFieldsModel], ['order_items_by_hour_variance_fields', () => OrderItemsByHourVarianceFieldsModel], ['order_items_max_fields', () => OrderItemsMaxFieldsModel], ['order_items_min_fields', () => OrderItemsMinFieldsModel], ['order_items_mutation_response', () => OrderItemsMutationResponseModel], ['order_items_stddev_fields', () => OrderItemsStddevFieldsModel], ['order_items_stddev_pop_fields', () => OrderItemsStddevPopFieldsModel], ['order_items_stddev_samp_fields', () => OrderItemsStddevSampFieldsModel], ['order_items_sum_fields', () => OrderItemsSumFieldsModel], ['order_items_var_pop_fields', () => OrderItemsVarPopFieldsModel], ['order_items_var_samp_fields', () => OrderItemsVarSampFieldsModel], ['order_items_variance_fields', () => OrderItemsVarianceFieldsModel], ['orders', () => OrdersModel], ['orders_aggregate', () => OrdersAggregateModel], ['orders_aggregate_fields', () => OrdersAggregateFieldsModel], ['orders_avg_fields', () => OrdersAvgFieldsModel], ['orders_max_fields', () => OrdersMaxFieldsModel], ['orders_min_fields', () => OrdersMinFieldsModel], ['orders_mutation_response', () => OrdersMutationResponseModel], ['orders_stddev_fields', () => OrdersStddevFieldsModel], ['orders_stddev_pop_fields', () => OrdersStddevPopFieldsModel], ['orders_stddev_samp_fields', () => OrdersStddevSampFieldsModel], ['orders_sum_fields', () => OrdersSumFieldsModel], ['orders_var_pop_fields', () => OrdersVarPopFieldsModel], ['orders_var_samp_fields', () => OrdersVarSampFieldsModel], ['orders_variance_fields', () => OrdersVarianceFieldsModel], ['query_root', () => QueryRootModel], ['subscription_root', () => SubscriptionRootModel], ['venues', () => VenuesModel], ['venues_aggregate', () => VenuesAggregateModel], ['venues_aggregate_fields', () => VenuesAggregateFieldsModel], ['venues_avg_fields', () => VenuesAvgFieldsModel], ['venues_max_fields', () => VenuesMaxFieldsModel], ['venues_min_fields', () => VenuesMinFieldsModel], ['venues_mutation_response', () => VenuesMutationResponseModel], ['venues_stddev_fields', () => VenuesStddevFieldsModel], ['venues_stddev_pop_fields', () => VenuesStddevPopFieldsModel], ['venues_stddev_samp_fields', () => VenuesStddevSampFieldsModel], ['venues_sum_fields', () => VenuesSumFieldsModel], ['venues_var_pop_fields', () => VenuesVarPopFieldsModel], ['venues_var_samp_fields', () => VenuesVarSampFieldsModel], ['venues_variance_fields', () => VenuesVarianceFieldsModel]], ['order_items_by_hour'], "js"))
   .props({
     orderItemsByHours: types.optional(types.map(types.late((): any => OrderItemsByHourModel)), {})
   })
@@ -1280,24 +1054,6 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     queryGet_nearby_venues_aggregate(variables: { args: GetNearbyVenuesArgs, distinctOn?: NearbyVenuesSelectColumn[], limit?: number, offset?: number, orderBy?: NearbyVenuesOrderBy[], where?: NearbyVenuesBoolExp }, resultSelector: string | ((qb: NearbyVenuesAggregateModelSelector) => NearbyVenuesAggregateModelSelector) = nearbyVenuesAggregateModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ get_nearby_venues_aggregate: NearbyVenuesAggregateModelType}>(`query get_nearby_venues_aggregate($args: get_nearby_venues_args!, $distinctOn: [nearby_venues_select_column!], $limit: Int, $offset: Int, $orderBy: [nearby_venues_order_by!], $where: nearby_venues_bool_exp) { get_nearby_venues_aggregate(args: $args, distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
         ${typeof resultSelector === "function" ? resultSelector(new NearbyVenuesAggregateModelSelector()).toString() : resultSelector}
-      } }`, variables, options)
-    },
-    // fetch data from the table: "id_test"
-    queryId_test(variables: { distinctOn?: IdTestSelectColumn[], limit?: number, offset?: number, orderBy?: IdTestOrderBy[], where?: IdTestBoolExp }, resultSelector: string | ((qb: IdTestModelSelector) => IdTestModelSelector) = idTestModelPrimitives.toString(), options: QueryOptions = {}) {
-      return self.query<{ id_test: IdTestModelType[]}>(`query id_test($distinctOn: [id_test_select_column!], $limit: Int, $offset: Int, $orderBy: [id_test_order_by!], $where: id_test_bool_exp) { id_test(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestModelSelector()).toString() : resultSelector}
-      } }`, variables, options)
-    },
-    // fetch aggregated fields from the table: "id_test"
-    queryId_test_aggregate(variables: { distinctOn?: IdTestSelectColumn[], limit?: number, offset?: number, orderBy?: IdTestOrderBy[], where?: IdTestBoolExp }, resultSelector: string | ((qb: IdTestAggregateModelSelector) => IdTestAggregateModelSelector) = idTestAggregateModelPrimitives.toString(), options: QueryOptions = {}) {
-      return self.query<{ id_test_aggregate: IdTestAggregateModelType}>(`query id_test_aggregate($distinctOn: [id_test_select_column!], $limit: Int, $offset: Int, $orderBy: [id_test_order_by!], $where: id_test_bool_exp) { id_test_aggregate(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestAggregateModelSelector()).toString() : resultSelector}
-      } }`, variables, options)
-    },
-    // fetch data from the table: "id_test" using primary key columns
-    queryId_test_by_pk(variables: { id: any }, resultSelector: string | ((qb: IdTestModelSelector) => IdTestModelSelector) = idTestModelPrimitives.toString(), options: QueryOptions = {}) {
-      return self.query<{ id_test_by_pk: IdTestModelType}>(`query id_test_by_pk($id: uuid!) { id_test_by_pk(id: $id) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
     // fetch data from the table: "menu_items"
@@ -1340,18 +1096,6 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     queryOrder_items(variables: { distinctOn?: OrderItemsSelectColumn[], limit?: number, offset?: number, orderBy?: OrderItemsOrderBy[], where?: OrderItemsBoolExp }, resultSelector: string | ((qb: OrderItemsModelSelector) => OrderItemsModelSelector) = orderItemsModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ order_items: OrderItemsModelType[]}>(`query order_items($distinctOn: [order_items_select_column!], $limit: Int, $offset: Int, $orderBy: [order_items_order_by!], $where: order_items_bool_exp) { order_items(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
         ${typeof resultSelector === "function" ? resultSelector(new OrderItemsModelSelector()).toString() : resultSelector}
-      } }`, variables, options)
-    },
-    // fetch data from the table: "order_items_10_mins"
-    queryOrder_items_10_mins(variables: { distinctOn?: OrderItems10MinsSelectColumn[], limit?: number, offset?: number, orderBy?: OrderItems10MinsOrderBy[], where?: OrderItems10MinsBoolExp }, resultSelector: string | ((qb: OrderItems10MinsModelSelector) => OrderItems10MinsModelSelector) = orderItems10MinsModelPrimitives.toString(), options: QueryOptions = {}) {
-      return self.query<{ order_items_10_mins: OrderItems10MinsModelType[]}>(`query order_items_10_mins($distinctOn: [order_items_10_mins_select_column!], $limit: Int, $offset: Int, $orderBy: [order_items_10_mins_order_by!], $where: order_items_10_mins_bool_exp) { order_items_10_mins(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new OrderItems10MinsModelSelector()).toString() : resultSelector}
-      } }`, variables, options)
-    },
-    // fetch aggregated fields from the table: "order_items_10_mins"
-    queryOrder_items_10_mins_aggregate(variables: { distinctOn?: OrderItems10MinsSelectColumn[], limit?: number, offset?: number, orderBy?: OrderItems10MinsOrderBy[], where?: OrderItems10MinsBoolExp }, resultSelector: string | ((qb: OrderItems10MinsAggregateModelSelector) => OrderItems10MinsAggregateModelSelector) = orderItems10MinsAggregateModelPrimitives.toString(), options: QueryOptions = {}) {
-      return self.query<{ order_items_10_mins_aggregate: OrderItems10MinsAggregateModelType}>(`query order_items_10_mins_aggregate($distinctOn: [order_items_10_mins_select_column!], $limit: Int, $offset: Int, $orderBy: [order_items_10_mins_order_by!], $where: order_items_10_mins_bool_exp) { order_items_10_mins_aggregate(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new OrderItems10MinsAggregateModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
     // fetch aggregated fields from the table: "order_items"
@@ -1414,18 +1158,6 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
         ${typeof resultSelector === "function" ? resultSelector(new VenuesModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
-    // delete data from the table: "id_test"
-    mutateDelete_id_test(variables: { where: IdTestBoolExp }, resultSelector: string | ((qb: IdTestMutationResponseModelSelector) => IdTestMutationResponseModelSelector) = idTestMutationResponseModelPrimitives.toString(), optimisticUpdate?: () => void) {
-      return self.mutate<{ delete_id_test: IdTestMutationResponseModelType}>(`mutation delete_id_test($where: id_test_bool_exp!) { delete_id_test(where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestMutationResponseModelSelector()).toString() : resultSelector}
-      } }`, variables, optimisticUpdate)
-    },
-    // delete single row from the table: "id_test"
-    mutateDelete_id_test_by_pk(variables: { id: any }, resultSelector: string | ((qb: IdTestModelSelector) => IdTestModelSelector) = idTestModelPrimitives.toString(), optimisticUpdate?: () => void) {
-      return self.mutate<{ delete_id_test_by_pk: IdTestModelType}>(`mutation delete_id_test_by_pk($id: uuid!) { delete_id_test_by_pk(id: $id) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestModelSelector()).toString() : resultSelector}
-      } }`, variables, optimisticUpdate)
-    },
     // delete data from the table: "menu_items"
     mutateDelete_menu_items(variables: { where: MenuItemsBoolExp }, resultSelector: string | ((qb: MenuItemsMutationResponseModelSelector) => MenuItemsMutationResponseModelSelector) = menuItemsMutationResponseModelPrimitives.toString(), optimisticUpdate?: () => void) {
       return self.mutate<{ delete_menu_items: MenuItemsMutationResponseModelType}>(`mutation delete_menu_items($where: menu_items_bool_exp!) { delete_menu_items(where: $where) {
@@ -1486,18 +1218,6 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
         ${typeof resultSelector === "function" ? resultSelector(new VenuesModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },
-    // insert data into the table: "id_test"
-    mutateInsert_id_test(variables: { objects: IdTestInsertInput[], onConflict?: IdTestOnConflict }, resultSelector: string | ((qb: IdTestMutationResponseModelSelector) => IdTestMutationResponseModelSelector) = idTestMutationResponseModelPrimitives.toString(), optimisticUpdate?: () => void) {
-      return self.mutate<{ insert_id_test: IdTestMutationResponseModelType}>(`mutation insert_id_test($objects: [id_test_insert_input!]!, $onConflict: id_test_on_conflict) { insert_id_test(objects: $objects, on_conflict: $onConflict) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestMutationResponseModelSelector()).toString() : resultSelector}
-      } }`, variables, optimisticUpdate)
-    },
-    // insert a single row into the table: "id_test"
-    mutateInsert_id_test_one(variables: { object: IdTestInsertInput, onConflict?: IdTestOnConflict }, resultSelector: string | ((qb: IdTestModelSelector) => IdTestModelSelector) = idTestModelPrimitives.toString(), optimisticUpdate?: () => void) {
-      return self.mutate<{ insert_id_test_one: IdTestModelType}>(`mutation insert_id_test_one($object: id_test_insert_input!, $onConflict: id_test_on_conflict) { insert_id_test_one(object: $object, on_conflict: $onConflict) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestModelSelector()).toString() : resultSelector}
-      } }`, variables, optimisticUpdate)
-    },
     // insert data into the table: "menu_items"
     mutateInsert_menu_items(variables: { objects: MenuItemsInsertInput[], onConflict?: MenuItemsOnConflict }, resultSelector: string | ((qb: MenuItemsMutationResponseModelSelector) => MenuItemsMutationResponseModelSelector) = menuItemsMutationResponseModelPrimitives.toString(), optimisticUpdate?: () => void) {
       return self.mutate<{ insert_menu_items: MenuItemsMutationResponseModelType}>(`mutation insert_menu_items($objects: [menu_items_insert_input!]!, $onConflict: menu_items_on_conflict) { insert_menu_items(objects: $objects, on_conflict: $onConflict) {
@@ -1556,18 +1276,6 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     mutateInsert_venues_one(variables: { object: VenuesInsertInput, onConflict?: VenuesOnConflict }, resultSelector: string | ((qb: VenuesModelSelector) => VenuesModelSelector) = venuesModelPrimitives.toString(), optimisticUpdate?: () => void) {
       return self.mutate<{ insert_venues_one: VenuesModelType}>(`mutation insert_venues_one($object: venues_insert_input!, $onConflict: venues_on_conflict) { insert_venues_one(object: $object, on_conflict: $onConflict) {
         ${typeof resultSelector === "function" ? resultSelector(new VenuesModelSelector()).toString() : resultSelector}
-      } }`, variables, optimisticUpdate)
-    },
-    // update data of the table: "id_test"
-    mutateUpdate_id_test(variables: { inc?: IdTestIncInput, set?: IdTestSetInput, where: IdTestBoolExp }, resultSelector: string | ((qb: IdTestMutationResponseModelSelector) => IdTestMutationResponseModelSelector) = idTestMutationResponseModelPrimitives.toString(), optimisticUpdate?: () => void) {
-      return self.mutate<{ update_id_test: IdTestMutationResponseModelType}>(`mutation update_id_test($inc: id_test_inc_input, $set: id_test_set_input, $where: id_test_bool_exp!) { update_id_test(_inc: $inc, _set: $set, where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestMutationResponseModelSelector()).toString() : resultSelector}
-      } }`, variables, optimisticUpdate)
-    },
-    // update single row of the table: "id_test"
-    mutateUpdate_id_test_by_pk(variables: { inc?: IdTestIncInput, set?: IdTestSetInput, pkColumns: IdTestPkColumnsInput }, resultSelector: string | ((qb: IdTestModelSelector) => IdTestModelSelector) = idTestModelPrimitives.toString(), optimisticUpdate?: () => void) {
-      return self.mutate<{ update_id_test_by_pk: IdTestModelType}>(`mutation update_id_test_by_pk($inc: id_test_inc_input, $set: id_test_set_input, $pkColumns: id_test_pk_columns_input!) { update_id_test_by_pk(_inc: $inc, _set: $set, pk_columns: $pkColumns) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },
     // update data of the table: "menu_items"
@@ -1642,24 +1350,6 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
         ${typeof resultSelector === "function" ? resultSelector(new NearbyVenuesAggregateModelSelector()).toString() : resultSelector}
       } }`, variables, onData, onError)
     },
-    // fetch data from the table: "id_test"
-    subscribeId_test(variables: { distinctOn?: IdTestSelectColumn[], limit?: number, offset?: number, orderBy?: IdTestOrderBy[], where?: IdTestBoolExp }, resultSelector: string | ((qb: IdTestModelSelector) => IdTestModelSelector) = idTestModelPrimitives.toString(), onData?: (item: any) => void, onError?: (error: Error) => void) {
-      return self.subscribe<{ id_test: IdTestModelType[]}>(`subscription id_test($distinctOn: [id_test_select_column!], $limit: Int, $offset: Int, $orderBy: [id_test_order_by!], $where: id_test_bool_exp) { id_test(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestModelSelector()).toString() : resultSelector}
-      } }`, variables, onData, onError)
-    },
-    // fetch aggregated fields from the table: "id_test"
-    subscribeId_test_aggregate(variables: { distinctOn?: IdTestSelectColumn[], limit?: number, offset?: number, orderBy?: IdTestOrderBy[], where?: IdTestBoolExp }, resultSelector: string | ((qb: IdTestAggregateModelSelector) => IdTestAggregateModelSelector) = idTestAggregateModelPrimitives.toString(), onData?: (item: any) => void, onError?: (error: Error) => void) {
-      return self.subscribe<{ id_test_aggregate: IdTestAggregateModelType}>(`subscription id_test_aggregate($distinctOn: [id_test_select_column!], $limit: Int, $offset: Int, $orderBy: [id_test_order_by!], $where: id_test_bool_exp) { id_test_aggregate(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestAggregateModelSelector()).toString() : resultSelector}
-      } }`, variables, onData, onError)
-    },
-    // fetch data from the table: "id_test" using primary key columns
-    subscribeId_test_by_pk(variables: { id: any }, resultSelector: string | ((qb: IdTestModelSelector) => IdTestModelSelector) = idTestModelPrimitives.toString(), onData?: (item: any) => void, onError?: (error: Error) => void) {
-      return self.subscribe<{ id_test_by_pk: IdTestModelType}>(`subscription id_test_by_pk($id: uuid!) { id_test_by_pk(id: $id) {
-        ${typeof resultSelector === "function" ? resultSelector(new IdTestModelSelector()).toString() : resultSelector}
-      } }`, variables, onData, onError)
-    },
     // fetch data from the table: "menu_items"
     subscribeMenu_items(variables: { distinctOn?: MenuItemsSelectColumn[], limit?: number, offset?: number, orderBy?: MenuItemsOrderBy[], where?: MenuItemsBoolExp }, resultSelector: string | ((qb: MenuItemsModelSelector) => MenuItemsModelSelector) = menuItemsModelPrimitives.toString(), onData?: (item: any) => void, onError?: (error: Error) => void) {
       return self.subscribe<{ menu_items: MenuItemsModelType[]}>(`subscription menu_items($distinctOn: [menu_items_select_column!], $limit: Int, $offset: Int, $orderBy: [menu_items_order_by!], $where: menu_items_bool_exp) { menu_items(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
@@ -1700,18 +1390,6 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     subscribeOrder_items(variables: { distinctOn?: OrderItemsSelectColumn[], limit?: number, offset?: number, orderBy?: OrderItemsOrderBy[], where?: OrderItemsBoolExp }, resultSelector: string | ((qb: OrderItemsModelSelector) => OrderItemsModelSelector) = orderItemsModelPrimitives.toString(), onData?: (item: any) => void, onError?: (error: Error) => void) {
       return self.subscribe<{ order_items: OrderItemsModelType[]}>(`subscription order_items($distinctOn: [order_items_select_column!], $limit: Int, $offset: Int, $orderBy: [order_items_order_by!], $where: order_items_bool_exp) { order_items(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
         ${typeof resultSelector === "function" ? resultSelector(new OrderItemsModelSelector()).toString() : resultSelector}
-      } }`, variables, onData, onError)
-    },
-    // fetch data from the table: "order_items_10_mins"
-    subscribeOrder_items_10_mins(variables: { distinctOn?: OrderItems10MinsSelectColumn[], limit?: number, offset?: number, orderBy?: OrderItems10MinsOrderBy[], where?: OrderItems10MinsBoolExp }, resultSelector: string | ((qb: OrderItems10MinsModelSelector) => OrderItems10MinsModelSelector) = orderItems10MinsModelPrimitives.toString(), onData?: (item: any) => void, onError?: (error: Error) => void) {
-      return self.subscribe<{ order_items_10_mins: OrderItems10MinsModelType[]}>(`subscription order_items_10_mins($distinctOn: [order_items_10_mins_select_column!], $limit: Int, $offset: Int, $orderBy: [order_items_10_mins_order_by!], $where: order_items_10_mins_bool_exp) { order_items_10_mins(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new OrderItems10MinsModelSelector()).toString() : resultSelector}
-      } }`, variables, onData, onError)
-    },
-    // fetch aggregated fields from the table: "order_items_10_mins"
-    subscribeOrder_items_10_mins_aggregate(variables: { distinctOn?: OrderItems10MinsSelectColumn[], limit?: number, offset?: number, orderBy?: OrderItems10MinsOrderBy[], where?: OrderItems10MinsBoolExp }, resultSelector: string | ((qb: OrderItems10MinsAggregateModelSelector) => OrderItems10MinsAggregateModelSelector) = orderItems10MinsAggregateModelPrimitives.toString(), onData?: (item: any) => void, onError?: (error: Error) => void) {
-      return self.subscribe<{ order_items_10_mins_aggregate: OrderItems10MinsAggregateModelType}>(`subscription order_items_10_mins_aggregate($distinctOn: [order_items_10_mins_select_column!], $limit: Int, $offset: Int, $orderBy: [order_items_10_mins_order_by!], $where: order_items_10_mins_bool_exp) { order_items_10_mins_aggregate(distinct_on: $distinctOn, limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
-        ${typeof resultSelector === "function" ? resultSelector(new OrderItems10MinsAggregateModelSelector()).toString() : resultSelector}
       } }`, variables, onData, onError)
     },
     // fetch aggregated fields from the table: "order_items"

@@ -5,10 +5,6 @@
 import { types } from "mobx-state-tree"
 import { QueryBuilder } from "mst-gql"
 import { ModelBase } from "./ModelBase"
-import { IdTestModel, IdTestModelType } from "./IdTestModel"
-import { IdTestModelSelector } from "./IdTestModel.base"
-import { IdTestMutationResponseModel, IdTestMutationResponseModelType } from "./IdTestMutationResponseModel"
-import { IdTestMutationResponseModelSelector } from "./IdTestMutationResponseModel.base"
 import { MenuItemsModel, MenuItemsModelType } from "./MenuItemsModel"
 import { MenuItemsModelSelector } from "./MenuItemsModel.base"
 import { MenuItemsMutationResponseModel, MenuItemsMutationResponseModelType } from "./MenuItemsMutationResponseModel"
@@ -42,10 +38,6 @@ export const MutationRootModelBase = ModelBase
   .named('MutationRoot')
   .props({
     __typename: types.optional(types.literal("mutation_root"), "mutation_root"),
-    /** delete data from the table: "id_test" */
-    delete_id_test: types.union(types.undefined, types.null, types.late((): any => IdTestMutationResponseModel)),
-    /** delete single row from the table: "id_test" */
-    delete_id_test_by_pk: types.union(types.undefined, types.null, types.late((): any => IdTestModel)),
     /** delete data from the table: "menu_items" */
     delete_menu_items: types.union(types.undefined, types.null, types.late((): any => MenuItemsMutationResponseModel)),
     /** delete single row from the table: "menu_items" */
@@ -66,10 +58,6 @@ export const MutationRootModelBase = ModelBase
     delete_venues: types.union(types.undefined, types.null, types.late((): any => VenuesMutationResponseModel)),
     /** delete single row from the table: "venues" */
     delete_venues_by_pk: types.union(types.undefined, types.null, types.late((): any => VenuesModel)),
-    /** insert data into the table: "id_test" */
-    insert_id_test: types.union(types.undefined, types.null, types.late((): any => IdTestMutationResponseModel)),
-    /** insert a single row into the table: "id_test" */
-    insert_id_test_one: types.union(types.undefined, types.null, types.late((): any => IdTestModel)),
     /** insert data into the table: "menu_items" */
     insert_menu_items: types.union(types.undefined, types.null, types.late((): any => MenuItemsMutationResponseModel)),
     /** insert a single row into the table: "menu_items" */
@@ -90,10 +78,6 @@ export const MutationRootModelBase = ModelBase
     insert_venues: types.union(types.undefined, types.null, types.late((): any => VenuesMutationResponseModel)),
     /** insert a single row into the table: "venues" */
     insert_venues_one: types.union(types.undefined, types.null, types.late((): any => VenuesModel)),
-    /** update data of the table: "id_test" */
-    update_id_test: types.union(types.undefined, types.null, types.late((): any => IdTestMutationResponseModel)),
-    /** update single row of the table: "id_test" */
-    update_id_test_by_pk: types.union(types.undefined, types.null, types.late((): any => IdTestModel)),
     /** update data of the table: "menu_items" */
     update_menu_items: types.union(types.undefined, types.null, types.late((): any => MenuItemsMutationResponseModel)),
     /** update single row of the table: "menu_items" */
@@ -122,8 +106,6 @@ export const MutationRootModelBase = ModelBase
   }))
 
 export class MutationRootModelSelector extends QueryBuilder {
-  delete_id_test(builder?: string | IdTestMutationResponseModelSelector | ((selector: IdTestMutationResponseModelSelector) => IdTestMutationResponseModelSelector)) { return this.__child(`delete_id_test`, IdTestMutationResponseModelSelector, builder) }
-  delete_id_test_by_pk(builder?: string | IdTestModelSelector | ((selector: IdTestModelSelector) => IdTestModelSelector)) { return this.__child(`delete_id_test_by_pk`, IdTestModelSelector, builder) }
   delete_menu_items(builder?: string | MenuItemsMutationResponseModelSelector | ((selector: MenuItemsMutationResponseModelSelector) => MenuItemsMutationResponseModelSelector)) { return this.__child(`delete_menu_items`, MenuItemsMutationResponseModelSelector, builder) }
   delete_menu_items_by_pk(builder?: string | MenuItemsModelSelector | ((selector: MenuItemsModelSelector) => MenuItemsModelSelector)) { return this.__child(`delete_menu_items_by_pk`, MenuItemsModelSelector, builder) }
   delete_nearby_venues(builder?: string | NearbyVenuesMutationResponseModelSelector | ((selector: NearbyVenuesMutationResponseModelSelector) => NearbyVenuesMutationResponseModelSelector)) { return this.__child(`delete_nearby_venues`, NearbyVenuesMutationResponseModelSelector, builder) }
@@ -134,8 +116,6 @@ export class MutationRootModelSelector extends QueryBuilder {
   delete_orders_by_pk(builder?: string | OrdersModelSelector | ((selector: OrdersModelSelector) => OrdersModelSelector)) { return this.__child(`delete_orders_by_pk`, OrdersModelSelector, builder) }
   delete_venues(builder?: string | VenuesMutationResponseModelSelector | ((selector: VenuesMutationResponseModelSelector) => VenuesMutationResponseModelSelector)) { return this.__child(`delete_venues`, VenuesMutationResponseModelSelector, builder) }
   delete_venues_by_pk(builder?: string | VenuesModelSelector | ((selector: VenuesModelSelector) => VenuesModelSelector)) { return this.__child(`delete_venues_by_pk`, VenuesModelSelector, builder) }
-  insert_id_test(builder?: string | IdTestMutationResponseModelSelector | ((selector: IdTestMutationResponseModelSelector) => IdTestMutationResponseModelSelector)) { return this.__child(`insert_id_test`, IdTestMutationResponseModelSelector, builder) }
-  insert_id_test_one(builder?: string | IdTestModelSelector | ((selector: IdTestModelSelector) => IdTestModelSelector)) { return this.__child(`insert_id_test_one`, IdTestModelSelector, builder) }
   insert_menu_items(builder?: string | MenuItemsMutationResponseModelSelector | ((selector: MenuItemsMutationResponseModelSelector) => MenuItemsMutationResponseModelSelector)) { return this.__child(`insert_menu_items`, MenuItemsMutationResponseModelSelector, builder) }
   insert_menu_items_one(builder?: string | MenuItemsModelSelector | ((selector: MenuItemsModelSelector) => MenuItemsModelSelector)) { return this.__child(`insert_menu_items_one`, MenuItemsModelSelector, builder) }
   insert_nearby_venues(builder?: string | NearbyVenuesMutationResponseModelSelector | ((selector: NearbyVenuesMutationResponseModelSelector) => NearbyVenuesMutationResponseModelSelector)) { return this.__child(`insert_nearby_venues`, NearbyVenuesMutationResponseModelSelector, builder) }
@@ -146,8 +126,6 @@ export class MutationRootModelSelector extends QueryBuilder {
   insert_orders_one(builder?: string | OrdersModelSelector | ((selector: OrdersModelSelector) => OrdersModelSelector)) { return this.__child(`insert_orders_one`, OrdersModelSelector, builder) }
   insert_venues(builder?: string | VenuesMutationResponseModelSelector | ((selector: VenuesMutationResponseModelSelector) => VenuesMutationResponseModelSelector)) { return this.__child(`insert_venues`, VenuesMutationResponseModelSelector, builder) }
   insert_venues_one(builder?: string | VenuesModelSelector | ((selector: VenuesModelSelector) => VenuesModelSelector)) { return this.__child(`insert_venues_one`, VenuesModelSelector, builder) }
-  update_id_test(builder?: string | IdTestMutationResponseModelSelector | ((selector: IdTestMutationResponseModelSelector) => IdTestMutationResponseModelSelector)) { return this.__child(`update_id_test`, IdTestMutationResponseModelSelector, builder) }
-  update_id_test_by_pk(builder?: string | IdTestModelSelector | ((selector: IdTestModelSelector) => IdTestModelSelector)) { return this.__child(`update_id_test_by_pk`, IdTestModelSelector, builder) }
   update_menu_items(builder?: string | MenuItemsMutationResponseModelSelector | ((selector: MenuItemsMutationResponseModelSelector) => MenuItemsMutationResponseModelSelector)) { return this.__child(`update_menu_items`, MenuItemsMutationResponseModelSelector, builder) }
   update_menu_items_by_pk(builder?: string | MenuItemsModelSelector | ((selector: MenuItemsModelSelector) => MenuItemsModelSelector)) { return this.__child(`update_menu_items_by_pk`, MenuItemsModelSelector, builder) }
   update_nearby_venues(builder?: string | NearbyVenuesMutationResponseModelSelector | ((selector: NearbyVenuesMutationResponseModelSelector) => NearbyVenuesMutationResponseModelSelector)) { return this.__child(`update_nearby_venues`, NearbyVenuesMutationResponseModelSelector, builder) }

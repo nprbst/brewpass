@@ -1,7 +1,7 @@
 import { Stack } from "@chakra-ui/core";
 import { observer } from "mobx-react-lite";
-import { OrderItemsByHourModelType } from "../models";
 
+import { OrderItemsByHourModelType } from "../models";
 import { OrderTile } from "./OrderTile";
 
 export interface OrderStackProps {

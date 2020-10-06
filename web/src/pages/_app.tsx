@@ -1,5 +1,6 @@
 import react from "react";
 import { ChakraProvider } from "@chakra-ui/core";
+import "../styles/OrderTile.css";
 
 import theme from "../theme";
 import { AppProps } from "next/app";

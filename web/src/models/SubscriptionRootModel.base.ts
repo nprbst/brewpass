@@ -6,10 +6,6 @@ import { IObservableArray } from "mobx"
 import { types } from "mobx-state-tree"
 import { MSTGQLRef, QueryBuilder, withTypedRefs } from "mst-gql"
 import { ModelBase } from "./ModelBase"
-import { IdTestAggregateModel, IdTestAggregateModelType } from "./IdTestAggregateModel"
-import { IdTestAggregateModelSelector } from "./IdTestAggregateModel.base"
-import { IdTestModel, IdTestModelType } from "./IdTestModel"
-import { IdTestModelSelector } from "./IdTestModel.base"
 import { MenuItemsAggregateModel, MenuItemsAggregateModelType } from "./MenuItemsAggregateModel"
 import { MenuItemsAggregateModelSelector } from "./MenuItemsAggregateModel.base"
 import { MenuItemsModel, MenuItemsModelType } from "./MenuItemsModel"
@@ -18,10 +14,6 @@ import { NearbyVenuesAggregateModel, NearbyVenuesAggregateModelType } from "./Ne
 import { NearbyVenuesAggregateModelSelector } from "./NearbyVenuesAggregateModel.base"
 import { NearbyVenuesModel, NearbyVenuesModelType } from "./NearbyVenuesModel"
 import { NearbyVenuesModelSelector } from "./NearbyVenuesModel.base"
-import { OrderItems10MinsAggregateModel, OrderItems10MinsAggregateModelType } from "./OrderItems10MinsAggregateModel"
-import { OrderItems10MinsAggregateModelSelector } from "./OrderItems10MinsAggregateModel.base"
-import { OrderItems10MinsModel, OrderItems10MinsModelType } from "./OrderItems10MinsModel"
-import { OrderItems10MinsModelSelector } from "./OrderItems10MinsModel.base"
 import { OrderItemsAggregateModel, OrderItemsAggregateModelType } from "./OrderItemsAggregateModel"
 import { OrderItemsAggregateModelSelector } from "./OrderItemsAggregateModel.base"
 import { OrderItemsByHourAggregateModel, OrderItemsByHourAggregateModelType } from "./OrderItemsByHourAggregateModel"
@@ -60,12 +52,6 @@ export const SubscriptionRootModelBase = withTypedRefs<Refs>()(ModelBase
     get_nearby_venues: types.union(types.undefined, types.array(types.late((): any => NearbyVenuesModel))),
     /** execute function "get_nearby_venues" and query aggregates on result of table type "nearby_venues" */
     get_nearby_venues_aggregate: types.union(types.undefined, types.late((): any => NearbyVenuesAggregateModel)),
-    /** fetch data from the table: "id_test" */
-    id_test: types.union(types.undefined, types.array(types.late((): any => IdTestModel))),
-    /** fetch aggregated fields from the table: "id_test" */
-    id_test_aggregate: types.union(types.undefined, types.late((): any => IdTestAggregateModel)),
-    /** fetch data from the table: "id_test" using primary key columns */
-    id_test_by_pk: types.union(types.undefined, types.null, types.late((): any => IdTestModel)),
     /** fetch data from the table: "menu_items" */
     menu_items: types.union(types.undefined, types.array(types.late((): any => MenuItemsModel))),
     /** fetch aggregated fields from the table: "menu_items" */
@@ -80,10 +66,6 @@ export const SubscriptionRootModelBase = withTypedRefs<Refs>()(ModelBase
     nearby_venues_by_pk: types.union(types.undefined, types.null, types.late((): any => NearbyVenuesModel)),
     /** fetch data from the table: "order_items" */
     order_items: types.union(types.undefined, types.array(types.late((): any => OrderItemsModel))),
-    /** fetch data from the table: "order_items_10_mins" */
-    order_items_10_mins: types.union(types.undefined, types.array(types.late((): any => OrderItems10MinsModel))),
-    /** fetch aggregated fields from the table: "order_items_10_mins" */
-    order_items_10_mins_aggregate: types.union(types.undefined, types.late((): any => OrderItems10MinsAggregateModel)),
     /** fetch aggregated fields from the table: "order_items" */
     order_items_aggregate: types.union(types.undefined, types.late((): any => OrderItemsAggregateModel)),
     /** fetch data from the table: "order_items_by_hour" */
@@ -114,9 +96,6 @@ export const SubscriptionRootModelBase = withTypedRefs<Refs>()(ModelBase
 export class SubscriptionRootModelSelector extends QueryBuilder {
   get_nearby_venues(builder?: string | NearbyVenuesModelSelector | ((selector: NearbyVenuesModelSelector) => NearbyVenuesModelSelector)) { return this.__child(`get_nearby_venues`, NearbyVenuesModelSelector, builder) }
   get_nearby_venues_aggregate(builder?: string | NearbyVenuesAggregateModelSelector | ((selector: NearbyVenuesAggregateModelSelector) => NearbyVenuesAggregateModelSelector)) { return this.__child(`get_nearby_venues_aggregate`, NearbyVenuesAggregateModelSelector, builder) }
-  id_test(builder?: string | IdTestModelSelector | ((selector: IdTestModelSelector) => IdTestModelSelector)) { return this.__child(`id_test`, IdTestModelSelector, builder) }
-  id_test_aggregate(builder?: string | IdTestAggregateModelSelector | ((selector: IdTestAggregateModelSelector) => IdTestAggregateModelSelector)) { return this.__child(`id_test_aggregate`, IdTestAggregateModelSelector, builder) }
-  id_test_by_pk(builder?: string | IdTestModelSelector | ((selector: IdTestModelSelector) => IdTestModelSelector)) { return this.__child(`id_test_by_pk`, IdTestModelSelector, builder) }
   menu_items(builder?: string | MenuItemsModelSelector | ((selector: MenuItemsModelSelector) => MenuItemsModelSelector)) { return this.__child(`menu_items`, MenuItemsModelSelector, builder) }
   menu_items_aggregate(builder?: string | MenuItemsAggregateModelSelector | ((selector: MenuItemsAggregateModelSelector) => MenuItemsAggregateModelSelector)) { return this.__child(`menu_items_aggregate`, MenuItemsAggregateModelSelector, builder) }
   menu_items_by_pk(builder?: string | MenuItemsModelSelector | ((selector: MenuItemsModelSelector) => MenuItemsModelSelector)) { return this.__child(`menu_items_by_pk`, MenuItemsModelSelector, builder) }
@@ -124,8 +103,6 @@ export class SubscriptionRootModelSelector extends QueryBuilder {
   nearby_venues_aggregate(builder?: string | NearbyVenuesAggregateModelSelector | ((selector: NearbyVenuesAggregateModelSelector) => NearbyVenuesAggregateModelSelector)) { return this.__child(`nearby_venues_aggregate`, NearbyVenuesAggregateModelSelector, builder) }
   nearby_venues_by_pk(builder?: string | NearbyVenuesModelSelector | ((selector: NearbyVenuesModelSelector) => NearbyVenuesModelSelector)) { return this.__child(`nearby_venues_by_pk`, NearbyVenuesModelSelector, builder) }
   order_items(builder?: string | OrderItemsModelSelector | ((selector: OrderItemsModelSelector) => OrderItemsModelSelector)) { return this.__child(`order_items`, OrderItemsModelSelector, builder) }
-  order_items_10_mins(builder?: string | OrderItems10MinsModelSelector | ((selector: OrderItems10MinsModelSelector) => OrderItems10MinsModelSelector)) { return this.__child(`order_items_10_mins`, OrderItems10MinsModelSelector, builder) }
-  order_items_10_mins_aggregate(builder?: string | OrderItems10MinsAggregateModelSelector | ((selector: OrderItems10MinsAggregateModelSelector) => OrderItems10MinsAggregateModelSelector)) { return this.__child(`order_items_10_mins_aggregate`, OrderItems10MinsAggregateModelSelector, builder) }
   order_items_aggregate(builder?: string | OrderItemsAggregateModelSelector | ((selector: OrderItemsAggregateModelSelector) => OrderItemsAggregateModelSelector)) { return this.__child(`order_items_aggregate`, OrderItemsAggregateModelSelector, builder) }
   order_items_by_hour(builder?: string | OrderItemsByHourModelSelector | ((selector: OrderItemsByHourModelSelector) => OrderItemsByHourModelSelector)) { return this.__child(`order_items_by_hour`, OrderItemsByHourModelSelector, builder) }
   order_items_by_hour_aggregate(builder?: string | OrderItemsByHourAggregateModelSelector | ((selector: OrderItemsByHourAggregateModelSelector) => OrderItemsByHourAggregateModelSelector)) { return this.__child(`order_items_by_hour_aggregate`, OrderItemsByHourAggregateModelSelector, builder) }

@@ -5,14 +5,10 @@ import { Flex, Text, Image } from "@chakra-ui/core";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { useQuery } from "../models";
-
 import { OrderStack } from "./OrderStack";
 
 export const OrderScroll = observer(() => {
   const { store /* error, loading, setQuery */ } = useQuery();
-  // (store) =>
-  //   store.loadInitial()
-  // );
 
   const dataLength = store.sortedOrderItems.length;
   const hasMore = () => dataLength < 200;
@@ -20,9 +16,8 @@ export const OrderScroll = observer(() => {
   const refresh = store.loadInitial;
   const spinner = (
     <Flex pt="2rem" align="center" justify="center">
-      {/* <Spinner /> */}
       <Image
-        src="/img/clinking_beer_mugs.gif"
+        src="/img/clinking_beer_mugs-anim.gif"
         height="128px"
         width="128px"
         align="center"
@@ -30,9 +25,19 @@ export const OrderScroll = observer(() => {
     </Flex>
   );
   const thatsAll = (
-    <Text mt="2rem" fontSize="xl" color="gray.400" textAlign="center">
-      We're all tapped out!
-    </Text>
+    <>
+      <Flex pt="2rem" align="center" justify="center">
+        <Image
+          src="/img/clinking_beer_mugs.gif"
+          height="128px"
+          width="128px"
+          align="center"
+        />
+      </Flex>
+      <Text mt="2rem" fontSize="lg" color="gray.500" textAlign="center">
+        We're all tap'd out...
+      </Text>
+    </>
   );
   const pullDown = (
     <Text fontSize="lg" color="gray.200" textAlign="center">

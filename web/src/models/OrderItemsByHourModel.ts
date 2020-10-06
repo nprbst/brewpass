@@ -40,15 +40,7 @@ export const OrderItemsByHourModel = OrderItemsByHourModelBase.props({
       score += recencyWeight * (60 / (30 + minAgo(now, self.last_order)));
       score *= hourBandBoost;
 
-      console.log(
-        "[" + self.id + "]",
-        score,
-        ":",
-        self.count,
-        minAgo(now, self.last_order),
-        hoursDiff(now, self.hour_of_day),
-        self.last_order
-      );
+      // console.log("[" + self.id + "]", score, ":", self.count, minAgo(now, self.last_order), hoursDiff(now, self.hour_of_day), self.last_order);
 
       return score;
     },

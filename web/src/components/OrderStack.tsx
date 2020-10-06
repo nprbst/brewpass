@@ -15,8 +15,7 @@ const minutesAgo = (lastOrder: string, virtualTime: Date): number => {
 
 export const OrderStack = observer(
   ({ items, virtualTime }: OrderStackProps) => {
-    console.log("items", items.length);
-    console.log("virtualTime", virtualTime);
+    console.log("virtualTime:", virtualTime);
 
     return (
       <Stack spacing="-1px">

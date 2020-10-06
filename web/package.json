@@ -2,9 +2,9 @@
   "name": "with-chakra-ui-typescript",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next --hostname localhost --port 8000",
     "build": "next build",
-    "start": "next start"
+    "start": "next start --hostname localhost --port 8000"
   },
   "dependencies": {
     "@avinlab/react-flash-change": "^1.2.0",

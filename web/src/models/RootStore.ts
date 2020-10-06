@@ -53,7 +53,6 @@ export const RootStore = RootStoreBase.props({
         queryOrderItemsByHourParams(limit, offset, hoursOffset),
         ORDER_ITEMS_by_hour_FRAGMENT,
         (items) => {
-          console.dir(items);
           items.map((item: any) => {
             const d = new Date(item.last_order);
             if (self.virtualTime?.valueOf() < d.valueOf()) {
@@ -70,7 +69,6 @@ export const RootStore = RootStoreBase.props({
         ORDER_ITEMS_by_hour_FRAGMENT
       );
       query.then((data) => {
-        console.dir(data);
         // Update virtual time
         if (reset) {
           self.virtualTime = new Date();

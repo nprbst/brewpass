@@ -93,3 +93,14 @@ web-build:
 web-start:
 	@cd web && yarn start
 .PHONY: web-start
+
+# Boot the iOS Simulator and open webapp
+ios-sim:
+	@echo Starting iOS Simulator...
+	@/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/Contents/MacOS/Simulator &
+	@sleep 5
+	@echo Booting iPhone 11...
+	@xcrun simctl boot "iPhone 11" ||:
+	@echo Opening Safari...
+	@xcrun simctl openurl booted http://localhost:3000/
+.PHONY: web-start

@@ -22,6 +22,8 @@ This project began with the [coding challenge](#Challenge) below and is growing 
 
 ## Discussion
 
+[Video Walkthrough - 2020.10.6](https://www.loom.com/share/9e3168d2e85a4251b11d052803e2b6c1)
+
 I live in Fort Collins, Colorado, which is both a college town and a world-famous Microbrewery Mecca. Given this, it wasn’t too hard to imagine a mashup of campus life and microbrew-culture. Thus, we have `brewpass` - the best way to get you brew on (with friends) while sustaining yourself!
 
 ### Fake it until you make it
